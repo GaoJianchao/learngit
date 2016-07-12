@@ -3,3 +3,4 @@ Git is free software under the GPL.
 Git is tracks changes of files.
 Git Git.
 Creating branch is quick and simple.
+Git branch merge.
