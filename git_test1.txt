@@ -2,4 +2,4 @@ Git is a version control system.
 Git is free software under the GPL.
 Git is tracks changes of files.
 Git Git.
-Creating branch is quick & simple.
+Creating branch is quick and simple.
