@@ -4,3 +4,4 @@ branch merge fast forward.
 Git normal merge branch.
 Git bug.
 Git normal merge branch..........
+Git 0713.
