@@ -2,3 +2,4 @@ Git is a version control system.
 Git is a distributed version control system.
 branch merge fast forward.
 Git normal merge branch.
+Git bug.
