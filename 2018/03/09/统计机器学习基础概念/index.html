@@ -9,7 +9,7 @@
 <h2 id="统计机器学习三要素"><a href="#统计机器学习三要素" class="headerlink" title="统计机器学习三要素"></a>统计机器学习三要素</h2><p><strong>模型</strong>：所要学习的条件概率分布或者决策函数。模型的假设空间就是所有可能的集合。<br><strong>策略</strong>：有了假设空间，要考虑按照什么样的准则选择最优的模型，这准则就是策略。<br><strong>算法</strong>：是指对选择出的最优模型用计算方法求解。这就将问题转化为最优化问题，但一般没有显式的解析解，这就需要数值计算方法求解。</p>
 <h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><p>损失函数用来度量预测错误的程度，一般有四种函数：</p>
 <ol>
-<li>0-1损失函数：<br>$$ L(Y,f(X))=\begin{cases}<br>1, Y \neq f(X)\<br>0, Y=f(X)<br>\end{cases}<br>$$</li>
+<li>0-1损失函数：<br>$$ L(Y,f(X))=\begin{cases}<br>1, Y \neq f(X)\\<br>0, Y=f(X)<br>\end{cases}<br>$$</li>
 <li>平方损失函数:<br>$$ L(Y, f(X))=(Y-f(X))^2 $$</li>
 <li>绝对损失函数:<br>$$ L(Y, f(X))=|Y-f(X)| $$</li>
 <li>对数损失函数:<br>$$ L(Y, f(X))=-logP(Y|X) $$</li>
