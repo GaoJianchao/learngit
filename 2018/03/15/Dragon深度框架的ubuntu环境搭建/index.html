@@ -34,13 +34,20 @@
 <p>这一步的时候如果用seetatech版本报错cuda_device.h,可能代码语顺的原因，所以用的第一套Dragon版本就没有报错。如果需要修改DRAGON_ROOT/CMakeLists.txt，这里需要进行make clean，重新进行编译make instal。</p>
 </li>
 <li><p>Install Dragon</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> cd $DRAGON_ROOT/python</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $DRAGON_ROOT/python</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p> 如果报错说没有权限，可以进行如下命令操作：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $DRAGON_ROOT/python</span><br><span class="line">python setup.py install --user</span><br></pre></td></tr></table></figure></p>
-<p> 本人用的是：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python setup.py install</span><br></pre></td></tr></table></figure></p>
-<p> 当然这是在有sudo权限的基础上能够进行，可能一些企业没有sudo命令权限。</p>
-</div><div class="tags"><a href="/learngit/tags/深度学习/">深度学习</a><a href="/learngit/tags/Dragon/">Dragon</a></div><div class="post-nav"><a class="next" href="/learngit/2018/03/15/隐马尔可夫模型/">隐马尔可夫模型</a></div><div id="lv-container" data-id="city" data-uid="MTAyMC8zNDcxMS8xMTI0OA"><script>(function(d, s) {
+<pre><code>如果报错说没有权限，可以进行如下命令操作：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $DRAGON_ROOT/python</span><br><span class="line">python setup.py install --user</span><br></pre></td></tr></table></figure>
+
+
+本人用的是：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python setup.py install</span><br></pre></td></tr></table></figure>
+
+当然这是在有sudo权限的基础上能够进行，可能一些企业没有sudo命令权限。
+</code></pre></div><div class="tags"><a href="/learngit/tags/深度学习/">深度学习</a><a href="/learngit/tags/Dragon/">Dragon</a></div><div class="post-nav"><a class="next" href="/learngit/2018/03/15/隐马尔可夫模型/">隐马尔可夫模型</a></div><div id="lv-container" data-id="city" data-uid="MTAyMC8zNDcxMS8xMTI0OA"><script>(function(d, s) {
    var j, e = d.getElementsByTagName(s)[0];
    if (typeof LivereTower === 'function') { return; }
    j = d.createElement(s);
