@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="潇洒一世">
 <meta property="og:description" content="逻辑回归可以用于二类或多类分类，它是源自逻辑斯谛分布。支持向量机是一种二类分类模型，学习算法是求解凸二次规划的最优化算法。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-15T13:17:51.260Z">
+<meta property="og:updated_time" content="2019-07-05T13:41:20.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑回归与支持向量机">
 <meta name="twitter:description" content="逻辑回归可以用于二类或多类分类，它是源自逻辑斯谛分布。支持向量机是一种二类分类模型，学习算法是求解凸二次规划的最优化算法。">
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>逻辑回归可以用于二类或多类分类，它是源自逻辑斯谛分布，使用极大似然估计法估计模型参数。支持向量机是一种二类分类模型。</p>
+        <p>逻辑回归可以用于二类或多类分类，它是源自逻辑斯谛分布，使用极大似然估计法估计模型参数。支持向量机是一种二类分类模型。<br><a id="more"></a></p>
 <h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><p>首先，逻辑回归模型的分布函数是S型曲线（sigmoid函数）：<br>$$h_w(x)=g(w^Tx)=\frac{1}{1+e^{-w^Tx}}$$即：<br>$$g(z)=\frac{1}{1+e^{-z}}$$<br> ![S函数曲线][1]</p>
 <h3 id="逻辑回归模型"><a href="#逻辑回归模型" class="headerlink" title="逻辑回归模型"></a>逻辑回归模型</h3><p>假定条件概率分布：<br>$$P(Y=1|x)=h_w(x) \\<br>P(Y=0|x)=1-h_w(x)$$<br><strong>模型参数估计</strong>：<br>使用极大似然估计法估计模型参数，则似然函数为：<br>$$\prod_{i=1}^N[h_w(x_i)]^{y_i}[1-h_w(x_i)]^{1-y_i}$$<br>对数似然函数为<br>$$<br>L(w)=\sum_{i=1}^N[{y_i}logh_w(x_i)+(1-y_i)log(1-h_w(x_i))] \\<br>=\sum_{i=1}^N[y_ilog\frac{h_w(x_i)}{(1-h_w(x_i))}+log((1-h_w(x_i)))] \\<br>=\sum_{i=1}^N[y_i(w^Tx_i)-log(1+e^{w^Tx_i})]<br>$$<br>对L（w）求极大值，得到w的估计值：<br>$$<br>\frac{\partial L(w)}{\partial w_i}=\sum_{i=1}^N (y_ix_i-h_w(x_i)x_i)<br>$$<br>学习中通常采用梯度下降法以及拟牛顿法。<br>则最后求得逻辑回归模型：<br>$$<br>y_i=\begin{cases}<br>h_w(x_i), y_i=1\\<br>1-h_w(x_i), y_i=0<br>\end{cases}<br>$$<br><strong>多分类逻辑回归</strong><br>对于<strong>多分类</strong>来说，将逻辑回归模型推广到多项逻辑回归模型<br>$$P(Y=k|x)=\frac{e^{w_k^Tx}}{1+\sum_{k=1}^{K-1} e^{w_k^Tx}}, k=1,2,…,K-1 \\<br>P(Y=K|x)=\frac{1}{1+\sum_{k=1}^{K-1}e^{w_k^Tx}}<br>$$</p>
 <h2 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h2><p>支持向量机基础是定义在特征空间上的间隔最大的线性分类器，间隔最大使它有别于感知机。此外，它还包括核方法，这使得它成为非线性分类器。它的学习算法是求解凸二次规划的最优化算法。</p>

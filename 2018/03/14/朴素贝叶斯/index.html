@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="潇洒一世">
 <meta property="og:description" content="朴素贝叶斯法是典型的**生成学习方法**，它是基于贝叶斯定理与特征**条件独立假设**的分类方法。生成方法是由训练数据学习联合概率分布$P(X,Y)$,然后求出后验概率分布$P(Y|X)$。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-14T13:29:54.587Z">
+<meta property="og:updated_time" content="2019-07-05T13:41:30.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="朴素贝叶斯">
 <meta name="twitter:description" content="朴素贝叶斯法是典型的**生成学习方法**，它是基于贝叶斯定理与特征**条件独立假设**的分类方法。生成方法是由训练数据学习联合概率分布$P(X,Y)$,然后求出后验概率分布$P(Y|X)$。">
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>朴素贝叶斯法是典型的<strong>生成学习方法</strong>，它是基于贝叶斯定理与特征<strong>条件独立假设</strong>的分类方法。生成方法是由训练数据学习联合概率分布$P(X,Y)$,然后求出后验概率分布$P(Y|X)$。具体来说，利用训练数据学习$P(X|Y),P(Y)$的估计，得到输入和输出的联合概率分布$P(X,Y)$：<br>$$P(X,Y)=P(Y)P(X|Y)$$<br>然后根据此模型，对给定的输入样本，利用贝叶斯定理求出后验概率最大的输出$y$。<br><strong>优点：实现简单，学习和预测效率都很高。</strong><br><strong>缺点：分类的性能不一定很高。</strong></p>
+        <p>朴素贝叶斯法是典型的<strong>生成学习方法</strong>，它是基于贝叶斯定理与特征<strong>条件独立假设</strong>的分类方法。生成方法是由训练数据学习联合概率分布$P(X,Y)$,然后求出后验概率分布$P(Y|X)$。具体来说，利用训练数据学习$P(X|Y),P(Y)$的估计，得到输入和输出的联合概率分布$P(X,Y)$：<br><a id="more"></a><br>$$P(X,Y)=P(Y)P(X|Y)$$<br>然后根据此模型，对给定的输入样本，利用贝叶斯定理求出后验概率最大的输出$y$。<br><strong>优点：实现简单，学习和预测效率都很高。</strong><br><strong>缺点：分类的性能不一定很高。</strong></p>
 <h2 id="朴素贝叶斯法"><a href="#朴素贝叶斯法" class="headerlink" title="朴素贝叶斯法"></a>朴素贝叶斯法</h2><p>朴素贝叶斯法是利用贝叶斯定理与学到的联合概率模型进行分类预测，即：<br>$$P(Y|X)=\frac{P(X,Y)}{P(X)}=\frac{P(Y)P(X|Y)}{\sum_Y P(Y)P(X|Y)}$$<br>其中$P(X,Y)$是由<strong>条件独立性</strong>这一朴素贝叶斯基本假设获得的：<br>$$P(X=x|Y=c_k)=P(X^{(1)}=x^{(1)},…,X^{(n)}=x^{(n)}|Y=c_k) \\<br>=\prod_{j=1}^n P(X^{(j)}=x^{(j)}|Y=c_k)<br>$$<br>等价于分类<strong>特征</strong>在类的确定下是条件独立的。<strong>如果假设它们之间存在概率依存关系，模型就变成了贝叶斯网络。</strong><br>于是，后验概率可重写为：<br>$$P(Y=c_k|X=x)=\frac{P(Y=c_k)\prod_{j=1}^n P(X^{(j)}=x^{(j)}|Y=c_k)}{\sum_k P(Y=c_k)\prod_{j=1}^n P(X^{(j)}=x^{(j)}|Y=c_k)}$$<br>最大化后验概率，朴素贝叶斯的分类器可表示为：<br>$$y=arg\max_{c_k}P(Y=c_k|X=x)$$<br>对于每个类来说，分母都是一样的。所以后验概率最大化相当于联合概率最大化，即：<br>$$y=arg\max_{c_k}P(Y=c_k)\prod_{j=1}^n P(X^{(j)}=x^{(j)}|Y=c_k)$$<br>等价于0-1损失函数时的期望风险最小化。</p>
 <h2 id="模型参数估计"><a href="#模型参数估计" class="headerlink" title="模型参数估计"></a>模型参数估计</h2><p>两种方法：极大似然估计和贝叶斯估计。<br>因为极大似然估计可能会出现所要估计的概率为0的情况，这会影响到后验概率的计算结果，使分类产生偏差，所以出现了贝叶斯估计。</p>
 <h3 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h3><p>先验概率$P(Y=c_k)$的极大似然估计为：<br>$$P(Y=c_k)=\frac{\sum_{i=1}^NI(y_i=c_k)}{N},k=1,2,…,K$$<br>条件概率$P(X^{(j)}=x^{(j)}|Y=c_k)$的极大似然估计为：<br>$$P(X^{(j)}=a_{jl}|Y=c_k)=\frac{\sum_{i=1}^NI({x}^{(j)}=a_{jl},y_i=c_k)}{N}$$</p>

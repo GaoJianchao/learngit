@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="潇洒一世">
 <meta property="og:description" content="隐马尔可夫模型是可用于标注问题的统计学习模型，是关于时序的概率模型，是一种生成模型。描述由隐藏的马尔可夫链随机生成观测序列的过程，具体来说，由一个隐藏的马尔可夫链随机生成不可预测的状态随机序列，再由各个状态生成一个观测而产生观测序列的过程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-05T12:32:57.474Z">
+<meta property="og:updated_time" content="2019-07-05T13:41:46.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="隐马尔可夫模型">
 <meta name="twitter:description" content="隐马尔可夫模型是可用于标注问题的统计学习模型，是关于时序的概率模型，是一种生成模型。描述由隐藏的马尔可夫链随机生成观测序列的过程，具体来说，由一个隐藏的马尔可夫链随机生成不可预测的状态随机序列，再由各个状态生成一个观测而产生观测序列的过程。">
@@ -179,8 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<p>隐马尔可夫模型是可用于标注问题的统计学习模型，是关于时序的概率模型，是一种生成模型。描述由隐藏的马尔可夫链随机生成观测序列的过程，具体来说，由一个隐藏的马尔可夫链随机生成不可预测的状态随机序列，再由各个状态生成一个观测而产生观测序列的过程。</p>
+        <p>隐马尔可夫模型是可用于标注问题的统计学习模型，是关于时序的概率模型，是一种生成模型。描述由隐藏的马尔可夫链随机生成观测序列的过程，具体来说，由一个隐藏的马尔可夫链随机生成不可预测的状态随机序列，再由各个状态生成一个观测而产生观测序列的过程。<br><a id="more"></a></p>
 <h2 id="隐马尔可夫模型"><a href="#隐马尔可夫模型" class="headerlink" title="隐马尔可夫模型"></a>隐马尔可夫模型</h2><p>隐马尔科夫三要素：初始状态概率向量$\pi$,状态转移概率矩阵$A$,观测概率矩阵$B$。因此模型写为：<br>$$\lambda=(A,B,\pi)$$<br><strong>初始状态概率向量：</strong>在时刻$t=1$处于状态$q_i$的概率向量。N代表状态集合的长度。<br>$$\pi_i=P(i_i=q_i),i=1,2,…,N$$<br><strong>状态转移概率矩阵：</strong>在时刻$t$处于状态$q_i$的条件下时刻$t+1$处于状态$q_j$的概率矩阵。<br>$$A=[a_{ij}]_{N \times N}$$<br><strong>观测概率矩阵：</strong>在时刻$t$处于状态$q_j$的条件下生成观测$v_k$的概率矩阵。M代表观测集合的长度。<br>$$B=[b_j(k)]_{N \times M}$$</p>
 <ol>
 <li>$A,\pi$ 确定了隐藏的马尔可夫链，生成<strong>不可观测的状态序列</strong>。</li>
