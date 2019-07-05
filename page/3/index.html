@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="潇洒一世" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/me.jpg">
+    <link rel="icon" href="img/me.jpg">
   
   <link rel="stylesheet" type="text/css" href="/learngit/./main.0cf68a.css">
   <style type="text/css">
@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/me.jpg" class="js-avatar">
+			<img src="img/me.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Alan</a></h1>
@@ -57,7 +57,7 @@
 			
 				<li><a href="/learngit/">主页</a></li>
 	        
-				<li><a href="/learngit/tags/随笔/">随笔</a></li>
+				<li><a href="/learngit/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -103,7 +103,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/me.jpg" class="js-avatar">
+				<img src="img/me.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Alan</h1>
@@ -139,7 +139,7 @@
 				
 					<li style="width: 50%"><a href="/learngit/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/learngit/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/learngit/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -176,17 +176,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h2 id="全局概览"><a href="#全局概览" class="headerlink" title="全局概览"></a>全局概览</h2><p>决策树<strong>模型</strong>呈树形结构，它是基于特征对样本进行分类的过程，可认为是If-then的集合或者定义在特征空间和类空间上的条件概率分布。<br><strong>优点</strong>：可读性、分类速度快。<br>决策树<strong>目的</strong>是构建一个与训练数据拟合很好，并且复杂度很小的决策树，因为从所有可能的决策树中选取最优的决策树是个NP难问题。所以一般采用<strong>启发式</strong>方法学习次优的决策树。<br><strong>决策树学习的策略是以损失函数为目标函数的最小化。（其实就是最小化对数概率损失函数）</strong></p>
-<blockquote>
-<p><strong>决策树学习算法包含特征选择、决策树的生成和决策树的剪枝过程。</strong>决策树其实表示的是一个条件概率分布，所有深浅不同的决策树对应于不同复杂度的概率模型。决策树的生成对应于模型的局部选择（考虑了局部最优），但是生成过程由于在学习时过多地考虑了如何提高对训练数据的正确分类，从而构建出过于复杂的决策树。而过于复杂的决策树会导致<strong>过拟合</strong>的现象。</p>
-</blockquote>
-<p>为了避免过拟合现象，就需要采用结构风险最小化模型（经验损失加上正则化项），而这种模型在决策树中称为<strong>剪枝过程</strong>（相当于用正则化的极大似然估计进行模型选择）。而剪枝对应于模型的全局选择（考虑了全局最优）</p>
-<p><strong>特征选择</strong>的准则包括信息增益和信息增益比、基尼指数。</p>
-<h2 id="信息增益和信息增益比"><a href="#信息增益和信息增益比" class="headerlink" title="信息增益和信息增益比"></a>信息增益和信息增益比</h2><p><strong>熵：</strong>表示随机变量不确定性的度量。熵越大，随机变量的不确定性越大。<br><strong>信息增益：</strong>表示由于特征A而使得对数据集D的分类的不确定性减少的程度。具体来说，定义为训练集合D的经验熵H（D）与基于特征A，训练集合的经验条件熵H（D|A）之差(也称为训练数据集中类与特征的互信息。)：<br>$$g(D,A)=H(D)-H(D|A)$$<br>由于信息增益偏向于选择取值较多的特征，所以信息增益比运用而生。<br><strong>信息增益比：</strong>对于一个特征来说，它的信息增益g(D,A)与训练数据集D关于该特征的值的熵H_A(D)之比，即：<br>$$g_R(D,A)=g(D,A)/H_A(D)$$</p>
-<h2 id="决策树算法：ID3、C4-5"><a href="#决策树算法：ID3、C4-5" class="headerlink" title="决策树算法：ID3、C4.5"></a>决策树算法：ID3、C4.5</h2><p><strong>ID3算法</strong>核心是在每个结点上用信息增益选择特征，递归地构建决策树。具体讲：从根节点出发，对每个特征计算信息增益，选择信息增益最大的特征作为该结点，然后由该结点的各个值建立子结点，再对子结点递归地进行上述操作，构建决策树；直到所有特征选择完毕为止。ID3相当于用极大似然法进行模型选择。<br><strong>C4.5算法</strong>步骤差不多，只是用信息增益比来代替信息增益选择特征。</p>
-<p>决策树的剪枝往往是对那个已经生成的树上剪掉一些子树或者叶子结点，并将其父结点或根结点作为新的叶节点，从而简化生成的决策树。</p>
-
+        <h2 id="全局概览"><a href="#全局概览" class="headerlink" title="全局概览"></a>全局概览</h2>
+        
       
 
       
@@ -274,31 +265,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<blockquote>
+        <blockquote>
 <ul>
-<li>统计学习是关于计算机基于数据构建概率统计模型并应用模型对数据进行分析与预测的一门学科;</li>
-<li>监督学习：从给定有限的训练数据出发，假设数据是独立同分布的，而且假设模型属于某个假设空间，应用某一评价准则，从假设空间中选取一个最优的模型，使它对已给训练数据及未知测试数据在给定评价标准意义下有最准确的预测。</li>
-</ul>
-</blockquote>
-<p>统计机器学习分为监督学习，无监督学习，半监督学习，增强学习。</p>
-<h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><p>输入空间、特征空间、输出空间、联合概率率分布（基本假设）、假设空间。<br><strong>特征空间</strong>：每个样本实例由特征向量表示，所有特征向量组成的空间就是特征空间。特征空间的每一维对应于一个特征，有时特征空间和输入空间一致，但有时不一致，故需将输入空间映射到特征空间。<strong>模型实际上是定义在特征空间上的。</strong><br><strong>假设空间</strong>：输入空间到输出空间的映射集合。</p>
-<h2 id="统计机器学习三要素"><a href="#统计机器学习三要素" class="headerlink" title="统计机器学习三要素"></a>统计机器学习三要素</h2><p><strong>模型</strong>：所要学习的条件概率分布或者决策函数。模型的假设空间就是所有可能的集合。<br><strong>策略</strong>：有了假设空间，要考虑按照什么样的准则选择最优的模型，这准则就是策略。<br><strong>算法</strong>：是指对选择出的最优模型用计算方法求解。这就将问题转化为最优化问题，但一般没有显式的解析解，这就需要数值计算方法求解。</p>
-<h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><p>损失函数用来度量预测错误的程度，一般有四种函数：</p>
-<ol>
-<li>0-1损失函数：<br>$$ L(Y,f(X))=\begin{cases}<br>1, Y \neq f(X)\\<br>0, Y=f(X)<br>\end{cases}<br>$$</li>
-<li>平方损失函数:<br>$$ L(Y, f(X))=(Y-f(X))^2 $$</li>
-<li>绝对损失函数:<br>$$ L(Y, f(X))=|Y-f(X)| $$</li>
-<li>对数损失函数:<br>$$ L(Y, f(X))=-logP(Y|X) $$</li>
-</ol>
-<p><strong>期望损失</strong>：模型关于联合分布的平均损失。学习的目标是选择期望风险最小的模型。但是联合概率分布一般是未知的，就不能求出条件概率分布。但<strong>经验风险：模型关于训练样本集的平均损失</strong>，根据大数定律，当样本容量趋于无穷大时，经验风险趋于期望风险。但是现实样本数是有限的，所以要对经验风险进行改进，这就关联了监督学习的两个基本策略：<strong>经验风险最小化和结构风险最小化</strong>。</p>
-<p>经验风险最小的模型认为是最优的模型，这是当样本容量很大时来说的。当样本容量很小时，学习的效果未必好，所以可能出现“过拟合”现象。为了避免过拟合，就有了结构化风险最小化模型（等价于正则化）：其实就是在经验风险最小化的基础上加上正则项（模型复杂度）。这时需要两者都最小才是最优模型。举例：结构风险最小化：极大似然估计（模型是条件概率分布，损失函数是对数函数），结构风险最小化：最大后验概率估计（模型是条件概率分布，损失函数是对数函数，正则化是模型的先验概率）。</p>
-<h2 id="模型评估和选择"><a href="#模型评估和选择" class="headerlink" title="模型评估和选择"></a>模型评估和选择</h2><h3 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h3><p><strong>训练误差</strong>：随模型复杂度的增加而减小。<br><strong>测试误差</strong>：随模型复杂度的增加先减小后增大。<br><strong>过拟合</strong>：模型的参数过多，以致于出现对训练集预测的好，对测试集预测的差的现象。<strong>模型选择就是要避免过拟合并提高模型的预测能力。</strong></p>
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><p>两种方法：正则化、交叉验证<br>正则化项：一般是模型复杂度的单调递增函数，可以是模型参数向量的范数（L1、L2等）。<br>交叉验证：将数据进行切分为训练集和测试集，反复训练、测试以及模型选择。（分类问题中样本足够多时，可能分为训练集（用于训练模型）、验证集（模型的选择）、测试集（对学习方法的评估））</p>
-<h2 id="泛化能力"><a href="#泛化能力" class="headerlink" title="泛化能力"></a>泛化能力</h2><p>泛化误差（期望风险）：模型对未知数据的预测能力。<br>泛化误差上界：它是样本容量的单调递减函数，当样本容量增加时，泛化误差趋于0；它还是假设空间的log函数，空间越大，泛化误差越大。</p>
-<h2 id="生成模型和判别模型"><a href="#生成模型和判别模型" class="headerlink" title="生成模型和判别模型"></a>生成模型和判别模型</h2><p><strong>生成方法特点</strong>：可以还原出联合概率分布P（X,Y），而判别不行；学习收敛速度快，随样本容量的增加可以更快收敛于真实模型；当存在隐变量时，也适用，但判别不行。<br><strong>判别方法特点</strong>：直接学习条件概率模型或者决策函数；学习准确率高，可以对数据进行各种程度上的抽象、定义特征和使用特征，简化学习问题。</p>
-<p>##分类问题<br>评价指标：准确率、精确率、召回率、F1.<br>精确率：正类正确分类的数量占所有分为正类的比例；<br>召回率：正类正确分类的数量占所有正确分类的比例；<br>F1：精确率和召回率的调和均值。<br><strong>标注问题</strong>：输入输出都是序列。<br><strong>回归问题</strong>：选择一条曲线更好地拟合一直数据且更好地预测位置数据。</p>
-
+<li>统计学习是关于计算机基于数据构建概率统计模型并应用模型对数据进行分析与预测的一门学科;
+        
       
 
       

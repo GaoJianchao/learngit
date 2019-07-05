@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="https://GaoJianchao.github.io/learngit">
   <title>Dragon深度框架之可微分编程 | 潇洒一世</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是可微分编程？ 深度学习本质上就是一种可微分编程方式； 可微分编程制定了编程可重用结构； 如：卷积、池化、LSTM、GAN、VAE、Memory单元、Routing单元等。  反向传播算法目前仍然是无坚不摧的原因： 大规模分布式训练效率极高； 优化困难问题正在被逐步解决。  框架需要学习什么？ 定义输入变量； 推导输出变量； 编译函数求解。  如何推导输出变量？ 符号仓库（operators">
+  <meta name="description" content="什么是可微分编程？">
 <meta name="keywords" content="深度学习,Dragon">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dragon深度框架之可微分编程">
 <meta property="og:url" content="https://GaoJianchao.github.io/learngit/2018/03/15/Dragon深度框架之可微分编程/index.html">
 <meta property="og:site_name" content="潇洒一世">
-<meta property="og:description" content="什么是可微分编程？ 深度学习本质上就是一种可微分编程方式； 可微分编程制定了编程可重用结构； 如：卷积、池化、LSTM、GAN、VAE、Memory单元、Routing单元等。  反向传播算法目前仍然是无坚不摧的原因： 大规模分布式训练效率极高； 优化困难问题正在被逐步解决。  框架需要学习什么？ 定义输入变量； 推导输出变量； 编译函数求解。  如何推导输出变量？ 符号仓库（operators">
+<meta property="og:description" content="什么是可微分编程？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-05T12:32:02.678Z">
+<meta property="og:updated_time" content="2019-07-05T13:33:51.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dragon深度框架之可微分编程">
-<meta name="twitter:description" content="什么是可微分编程？ 深度学习本质上就是一种可微分编程方式； 可微分编程制定了编程可重用结构； 如：卷积、池化、LSTM、GAN、VAE、Memory单元、Routing单元等。  反向传播算法目前仍然是无坚不摧的原因： 大规模分布式训练效率极高； 优化困难问题正在被逐步解决。  框架需要学习什么？ 定义输入变量； 推导输出变量； 编译函数求解。  如何推导输出变量？ 符号仓库（operators">
+<meta name="twitter:description" content="什么是可微分编程？">
   
     <link rel="alternative" href="/atom.xml" title="潇洒一世" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/me.jpg">
+    <link rel="icon" href="img/me.jpg">
   
   <link rel="stylesheet" type="text/css" href="/learngit/./main.0cf68a.css">
   <style type="text/css">
@@ -48,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/me.jpg" class="js-avatar">
+			<img src="img/me.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Alan</a></h1>
@@ -62,7 +62,7 @@
 			
 				<li><a href="/learngit/">主页</a></li>
 	        
-				<li><a href="/learngit/tags/随笔/">随笔</a></li>
+				<li><a href="/learngit/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -108,7 +108,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/me.jpg" class="js-avatar">
+				<img src="img/me.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Alan</h1>
@@ -144,7 +144,7 @@
 				
 					<li style="width: 50%"><a href="/learngit/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/learngit/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/learngit/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -179,8 +179,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h2 id="什么是可微分编程？"><a href="#什么是可微分编程？" class="headerlink" title="什么是可微分编程？"></a>什么是可微分编程？</h2><ul>
+        <h2 id="什么是可微分编程？"><a href="#什么是可微分编程？" class="headerlink" title="什么是可微分编程？"></a>什么是可微分编程？</h2><a id="more"></a>
+<ul>
 <li>深度学习本质上就是一种可微分编程方式；</li>
 <li>可微分编程制定了编程可重用结构；</li>
 <li>如：卷积、池化、LSTM、GAN、VAE、Memory单元、Routing单元等。</li>

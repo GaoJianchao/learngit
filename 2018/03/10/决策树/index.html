@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="潇洒一世">
 <meta property="og:description" content="决策树模型呈树形结构，它是基于特征对样本进行分类的过程，可认为是If-then的集合或者定义在特征空间和类空间上的条件概率分布。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-05T12:32:47.321Z">
+<meta property="og:updated_time" content="2019-07-05T13:34:06.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策树">
 <meta name="twitter:description" content="决策树模型呈树形结构，它是基于特征对样本进行分类的过程，可认为是If-then的集合或者定义在特征空间和类空间上的条件概率分布。">
@@ -24,7 +24,7 @@
     <link rel="alternative" href="/atom.xml" title="潇洒一世" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/me.jpg">
+    <link rel="icon" href="img/me.jpg">
   
   <link rel="stylesheet" type="text/css" href="/learngit/./main.0cf68a.css">
   <style type="text/css">
@@ -48,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/me.jpg" class="js-avatar">
+			<img src="img/me.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Alan</a></h1>
@@ -62,7 +62,7 @@
 			
 				<li><a href="/learngit/">主页</a></li>
 	        
-				<li><a href="/learngit/tags/随笔/">随笔</a></li>
+				<li><a href="/learngit/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -108,7 +108,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/me.jpg" class="js-avatar">
+				<img src="img/me.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Alan</h1>
@@ -144,7 +144,7 @@
 				
 					<li style="width: 50%"><a href="/learngit/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/learngit/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/learngit/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -179,8 +179,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h2 id="全局概览"><a href="#全局概览" class="headerlink" title="全局概览"></a>全局概览</h2><p>决策树<strong>模型</strong>呈树形结构，它是基于特征对样本进行分类的过程，可认为是If-then的集合或者定义在特征空间和类空间上的条件概率分布。<br><strong>优点</strong>：可读性、分类速度快。<br>决策树<strong>目的</strong>是构建一个与训练数据拟合很好，并且复杂度很小的决策树，因为从所有可能的决策树中选取最优的决策树是个NP难问题。所以一般采用<strong>启发式</strong>方法学习次优的决策树。<br><strong>决策树学习的策略是以损失函数为目标函数的最小化。（其实就是最小化对数概率损失函数）</strong></p>
+        <h2 id="全局概览"><a href="#全局概览" class="headerlink" title="全局概览"></a>全局概览</h2><a id="more"></a>
+<p>决策树<strong>模型</strong>呈树形结构，它是基于特征对样本进行分类的过程，可认为是If-then的集合或者定义在特征空间和类空间上的条件概率分布。<br><strong>优点</strong>：可读性、分类速度快。<br>决策树<strong>目的</strong>是构建一个与训练数据拟合很好，并且复杂度很小的决策树，因为从所有可能的决策树中选取最优的决策树是个NP难问题。所以一般采用<strong>启发式</strong>方法学习次优的决策树。<br><strong>决策树学习的策略是以损失函数为目标函数的最小化。（其实就是最小化对数概率损失函数）</strong></p>
 <blockquote>
 <p><strong>决策树学习算法包含特征选择、决策树的生成和决策树的剪枝过程。</strong>决策树其实表示的是一个条件概率分布，所有深浅不同的决策树对应于不同复杂度的概率模型。决策树的生成对应于模型的局部选择（考虑了局部最优），但是生成过程由于在学习时过多地考虑了如何提高对训练数据的正确分类，从而构建出过于复杂的决策树。而过于复杂的决策树会导致<strong>过拟合</strong>的现象。</p>
 </blockquote>
