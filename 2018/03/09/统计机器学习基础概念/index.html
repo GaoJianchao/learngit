@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="潇洒一世">
 <meta property="og:description" content="统计学习是关于计算机基于数据构建概率统计模型并应用模型对数据进行分析与预测的一门学科。监督学习：从给定有限的训练数据出发，假设数据是独立同分布的，而且假设模型属于某个假设空间，应用某一评价准则，从假设空间中选取一个最优的模型，使它对已给训练数据及未知测试数据在给定评价标准意义下有最准确的预测。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-13T01:25:31.725Z">
+<meta property="og:updated_time" content="2019-07-05T12:32:52.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="统计机器学习基本概念">
 <meta name="twitter:description" content="统计学习是关于计算机基于数据构建概率统计模型并应用模型对数据进行分析与预测的一门学科。监督学习：从给定有限的训练数据出发，假设数据是独立同分布的，而且假设模型属于某个假设空间，应用某一评价准则，从假设空间中选取一个最优的模型，使它对已给训练数据及未知测试数据在给定评价标准意义下有最准确的预测。">
@@ -24,7 +24,7 @@
     <link rel="alternative" href="/atom.xml" title="潇洒一世" type="application/atom+xml">
   
   
-    <link rel="icon" href="me.jpg">
+    <link rel="icon" href="/img/me.jpg">
   
   <link rel="stylesheet" type="text/css" href="/learngit/./main.0cf68a.css">
   <style type="text/css">
@@ -48,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="me.jpg" class="js-avatar">
+			<img src="/img/me.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Jianchao Gao</a></h1>
@@ -108,7 +108,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="me.jpg" class="js-avatar">
+				<img src="/img/me.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Jianchao Gao</h1>
@@ -179,7 +179,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <a id="more"></a>
+<blockquote>
 <ul>
 <li>统计学习是关于计算机基于数据构建概率统计模型并应用模型对数据进行分析与预测的一门学科;</li>
 <li>监督学习：从给定有限的训练数据出发，假设数据是独立同分布的，而且假设模型属于某个假设空间，应用某一评价准则，从假设空间中选取一个最优的模型，使它对已给训练数据及未知测试数据在给定评价标准意义下有最准确的预测。</li>
@@ -218,6 +219,16 @@
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/AliPayQR.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/WeChatQR.png">
+                      <span class="reward-type">微信</span>
+                    </div>
                     
                   </div>
                 </span>
@@ -352,6 +363,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#监督学习"><span class="toc-number">1.</span> <span class="toc-text">监督学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计机器学习三要素"><span class="toc-number">2.</span> <span class="toc-text">统计机器学习三要素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#策略"><span class="toc-number">2.1.</span> <span class="toc-text">策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型评估和选择"><span class="toc-number">3.</span> <span class="toc-text">模型评估和选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#评估"><span class="toc-number">3.1.</span> <span class="toc-text">评估</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择"><span class="toc-number">3.2.</span> <span class="toc-text">选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛化能力"><span class="toc-number">4.</span> <span class="toc-text">泛化能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成模型和判别模型"><span class="toc-number">5.</span> <span class="toc-text">生成模型和判别模型</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -393,12 +417,15 @@ gitment.render('gitment-ctn')
     	<div class="footer-left">
     		&copy; 2019 Jianchao Gao
     	</div>
+		<span id="busuanzi_container_site_pv">    本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+		<span id="busuanzi_container_site_uv">  本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
   </div>
 </footer>
+
     </div>
     <script>
 	var yiliaConfig = {
@@ -443,6 +470,8 @@ MathJax.Hub.Queue(function() {
 </script>
 
 
+
+<script  async  src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
