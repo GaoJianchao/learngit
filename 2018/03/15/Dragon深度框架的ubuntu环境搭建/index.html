@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://GaoJianchao.github.io/learngit">
-  <title>Dragon深度框架的ubuntu环境搭建 | 潇洒一世</title>
+  <title>Dragon深度框架的ubuntu环境搭建 | 高建超的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Dragon - A Computation Graph Virtual Machine Based Deep Learning Framework. TensorFlow并不是最好的框架，MXNet也不是，最好的框架是自己用的舒服的框架。">
 <meta name="keywords" content="深度学习,Dragon">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dragon深度框架的ubuntu环境搭建">
 <meta property="og:url" content="https://GaoJianchao.github.io/learngit/2018/03/15/Dragon深度框架的ubuntu环境搭建/index.html">
-<meta property="og:site_name" content="潇洒一世">
+<meta property="og:site_name" content="高建超的博客">
 <meta property="og:description" content="Dragon - A Computation Graph Virtual Machine Based Deep Learning Framework. TensorFlow并不是最好的框架，MXNet也不是，最好的框架是自己用的舒服的框架。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-05T13:33:37.076Z">
+<meta property="og:updated_time" content="2019-07-05T16:55:47.263Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dragon深度框架的ubuntu环境搭建">
 <meta name="twitter:description" content="Dragon - A Computation Graph Virtual Machine Based Deep Learning Framework. TensorFlow并不是最好的框架，MXNet也不是，最好的框架是自己用的舒服的框架。">
   
-    <link rel="alternative" href="/atom.xml" title="潇洒一世" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="高建超的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/learngit/img/me.jpg">
@@ -30,7 +30,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(2200deg,#ccc,#000);
     }
   </style>
   
@@ -54,7 +54,7 @@
 		  <h1 class="header-author"><a href="/">Alan</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">高建超的博客</p>
+		<p class="header-subtitle">代码虐我千百遍,我待代码如初恋</p>
 		
 
 		<nav class="header-menu">
@@ -114,7 +114,7 @@
 			  <h1 class="header-author js-header-author">Alan</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>高建超的博客<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>代码虐我千百遍,我待代码如初恋<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -184,41 +184,22 @@
 <p>TensorFlow并不是最好的框架，MXNet也不是，最好的框架是自己用的舒服的框架。</p>
 </blockquote>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>本人只进行了linux环境的搭建，windows环境搭建需要参考github。</p>
-<ol>
-<li><p>clone dragon</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/seetaresearch/Dragon.git</span><br></pre></td></tr></table></figure>
-<p>将clone后的Dragon文件夹改名为REPO_ROOT；REPO_ROOT、Dragon改名为DRAGON_ROOT。</p>
-</li>
-<li><p>Setup Python Development Environment</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libpython-dev</span><br></pre></td></tr></table></figure>
-<p>当然，也使用的是Anaconda（建议使用2.x版本）</p>
-</li>
-<li><p>Setup C++ Development Environment</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libprotobuf-dev</span><br><span class="line">sudo apt-get install protobuf-compiler</span><br><span class="line">sudo apt-get install libopenblas-dev</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>Install Python Requirements</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $DRAGON_ROOT/python</span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Configure DRAGON_ROOT/CMakeLists.txt</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Select optional libraries [PYTHON / BLAS / SSE]</span><br><span class="line">(Optional) Set PYTHON_EXECUTABLE if you want to use specific Python (e.g. Anaconda)</span><br></pre></td></tr></table></figure>
-<p>最好开启PYTHON、 BLAS、 SSE选项，如果有CUDA可以选择开启。</p>
-</li>
-<li><p>Install CMake</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install cmake</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>Make</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd $DRAGON_ROOT</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make install -j16</span><br></pre></td></tr></table></figure>
-<p>这一步的时候如果用seetatech版本报错cuda_device.h,可能代码语顺的原因，所以用的第一套Dragon版本就没有报错。如果需要修改DRAGON_ROOT/CMakeLists.txt，这里需要进行make clean，重新进行编译make instal。</p>
-</li>
-<li><p>Install Dragon</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $DRAGON_ROOT/python</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<pre><code>如果报错说没有权限，可以进行如下命令操作：
+<p> 1、clone dragon<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/seetaresearch/Dragon.git</span><br></pre></td></tr></table></figure></p>
+<pre><code>将clone后的Dragon文件夹改名为REPO_ROOT；REPO_ROOT、Dragon改名为DRAGON_ROOT。
+</code></pre><p> 2、Setup Python Development Environment<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libpython-dev</span><br></pre></td></tr></table></figure></p>
+<pre><code>当然，也使用的是Anaconda（建议使用2.x版本）
+</code></pre><p> 3、Setup C++ Development Environment<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libprotobuf-dev</span><br><span class="line">sudo apt-get install protobuf-compiler</span><br><span class="line">sudo apt-get install libopenblas-dev</span><br></pre></td></tr></table></figure></p>
+<p> 4、Install Python Requirements<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $DRAGON_ROOT/python</span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure></p>
+<p> 5、Configure DRAGON_ROOT/CMakeLists.txt<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Select optional libraries [PYTHON / BLAS / SSE]</span><br><span class="line">(Optional) Set PYTHON_EXECUTABLE if you want to use specific Python (e.g. Anaconda)</span><br></pre></td></tr></table></figure></p>
+<pre><code>最好开启PYTHON、 BLAS、 SSE选项，如果有CUDA可以选择开启。
+</code></pre><p> 6、Install CMake<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install cmake</span><br></pre></td></tr></table></figure></p>
+<p> 7、Make<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd $DRAGON_ROOT</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make install -j16</span><br></pre></td></tr></table></figure></p>
+<pre><code>这一步的时候如果用seetatech版本报错cuda_device.h,可能代码语顺的原因，所以用的第一套Dragon版本就没有报错。如果需要修改DRAGON_ROOT/CMakeLists.txt，这里需要进行make clean，重新进行编译make instal。
+</code></pre><p> 8、Install Dragon</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $DRAGON_ROOT/python</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+
+
+如果报错说没有权限，可以进行如下命令操作：
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $DRAGON_ROOT/python</span><br><span class="line">python setup.py install --user</span><br></pre></td></tr></table></figure>
 
@@ -357,18 +338,18 @@
   
 <nav id="article-nav">
   
-    <a href="/learngit/2018/03/15/Dragon深度框架之虚拟风格编程/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/learngit/2018/03/15/Dragon深度框架之可微分编程/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Dragon深度框架之虚拟风格编程
+          Dragon深度框架之可微分编程
         
       </div>
     </a>
   
   
-    <a href="/learngit/2018/03/15/隐马尔可夫模型/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">隐马尔可夫模型</div>
+    <a href="/learngit/2018/03/15/Dragon深度框架之虚拟风格编程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Dragon深度框架之虚拟风格编程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -463,7 +444,7 @@
 		toc_hide_index: true,
 		root: "/learngit/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
