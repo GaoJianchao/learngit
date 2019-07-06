@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="https://GaoJianchao.github.io/learngit">
   <title>Tensorflow-gpu源码gcc编译 | 高建超的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="c++版本的tensorflow-gpu。">
+  <meta name="description" content="最近接到公司的一个任务，需要配置c++版本的tensorflow-gpu，刚开始的时候一脸懵逼，只会python的我对C++感到很惧怕，但是为了完成任务还得干…….下面就是编译tensorflow的各种坑，其实都是版本问题。">
 <meta name="keywords" content="深度学习,tensorflow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tensorflow-gpu源码gcc编译">
 <meta property="og:url" content="https://GaoJianchao.github.io/learngit/2019/07/06/Tensorflow-gpu源码gcc编译/index.html">
 <meta property="og:site_name" content="高建超的博客">
-<meta property="og:description" content="c++版本的tensorflow-gpu。">
+<meta property="og:description" content="最近接到公司的一个任务，需要配置c++版本的tensorflow-gpu，刚开始的时候一脸懵逼，只会python的我对C++感到很惧怕，但是为了完成任务还得干…….下面就是编译tensorflow的各种坑，其实都是版本问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="e:/Git/hexopath/themes/yilia/source/img/tensorflow_version.PNG">
-<meta property="og:updated_time" content="2019-07-06T01:36:43.076Z">
+<meta property="og:image" content="https://github.com/GaoJianchao/learngit/blob/master/img/tensorflow_version.PNG">
+<meta property="og:updated_time" content="2019-07-06T01:42:59.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow-gpu源码gcc编译">
-<meta name="twitter:description" content="c++版本的tensorflow-gpu。">
-<meta name="twitter:image" content="e:/Git/hexopath/themes/yilia/source/img/tensorflow_version.PNG">
+<meta name="twitter:description" content="最近接到公司的一个任务，需要配置c++版本的tensorflow-gpu，刚开始的时候一脸懵逼，只会python的我对C++感到很惧怕，但是为了完成任务还得干…….下面就是编译tensorflow的各种坑，其实都是版本问题。">
+<meta name="twitter:image" content="https://github.com/GaoJianchao/learngit/blob/master/img/tensorflow_version.PNG">
   
     <link rel="alternative" href="/atom.xml" title="高建超的博客" type="application/atom+xml">
   
@@ -174,7 +174,7 @@
 
         
         <a href="/learngit/2019/07/06/Tensorflow-gpu源码gcc编译/" class="archive-article-date">
-  	<time datetime="2019-07-06T01:28:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-06</time>
+  	<time datetime="2019-07-06T01:40:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-06</time>
 </a>
         
       </header>
@@ -205,7 +205,7 @@
 <li><p>代码库默认为 <code>master</code> 开发分支。您也可以检出要编译的<a href="https://github.com/tensorflow/tensorflow/releases" target="_blank" rel="noopener">版本分支</a>：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd tensorflow</span><br><span class="line">git checkout branch_name  <span class="comment"># r1.9, r1.10, etc.</span></span><br></pre></td></tr></table></figure>
 <p>这里注意一下，必须选择与bazel对应版本的tensorflow，不管是GPU还是CPU，我就是没注意，踩了很多坑，具体版本对应请参考<a href="https://tensorflow.google.cn/install/source" target="_blank" rel="noopener">tensorflow官网</a>，我列出了目前官网的GPU版本对应，如下。还要注意一下自己环境gpu驱动cuda、cudnn的版本。</p>
-<p><img src="E:\Git\hexopath\themes\yilia\source\img\tensorflow_version.PNG" alt=""></p>
+<p><img src="https://github.com/GaoJianchao/learngit/blob/master/img/tensorflow_version.PNG" alt=""></p>
 </li>
 </ul>
 <ul>
