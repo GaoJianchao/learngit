@@ -156,6 +156,144 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Tensorflow-gpu源码gcc编译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/learngit/2019/07/06/Tensorflow-gpu源码gcc编译/">Tensorflow-gpu源码gcc编译</a>
+    </h1>
+  
+
+        
+        <a href="/learngit/2019/07/06/Tensorflow-gpu源码gcc编译/" class="archive-article-date">
+  	<time datetime="2019-07-06T01:28:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Tensorflow-gpu源码linux-gcc编译"><a href="#Tensorflow-gpu源码linux-gcc编译" class="headerlink" title="Tensorflow-gpu源码linux-gcc编译"></a>Tensorflow-gpu源码linux-gcc编译</h1><p>最近接到公司的一个任务，需要配置c++版本的tensorflow-gpu，刚开始的时候一脸懵逼，只会python的我对C++感到很惧怕，但是为了完成任务还得干…….下面就是编译tensorflow的各种坑，其实都是版本问题。</p>
+<h2 id="安装bazel"><a href="#安装bazel" class="headerlink" title="安装bazel"></a>安装bazel</h2><ul>
+<li><p>首先，要安去官网github上下载对应编译tensorflow版本的bazel。</p>
+<blockquote>
+<p>download the Bazel binary installer named <strong>bazel-<version>-installer-linux-x86_64.sh</version></strong> from the <a href="https://github.com/bazelbuild/bazel/releases" target="_blank" rel="noopener">Bazel releases page on GitHub.</a></p>
+</blockquote>
+</li>
+<li><p>在linux环境下修改.sh权限，一般下载下来需要修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x bazel-&lt;version&gt;-installer-linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后执行sh就可以了，别忘记加‘–user’参数，否则安装失败：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./bazel-&lt;version&gt;-installer-linux-x86_64.sh --user</span><br><span class="line">sh ./bazel-&lt;version&gt;-installer-linux-x86_64.sh --user</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="编译tensorflow-gpu"><a href="#编译tensorflow-gpu" class="headerlink" title="编译tensorflow-gpu"></a>编译tensorflow-gpu</h2><p>原来用tensorflow只是用于python语言，直接pip install tensorflow==X.X命令就搞定，太方便了，这猛地来个gcc编译tensorflow还不适应，那也得弄啊。</p>
+<ul>
+<li><p>使用 <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> 克隆 <a href="https://github.com/tensorflow/tensorflow" target="_blank" rel="noopener">TensorFlow 代码库</a>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow.git</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>代码库默认为 <code>master</code> 开发分支。您也可以检出要编译的<a href="https://github.com/tensorflow/tensorflow/releases" target="_blank" rel="noopener">版本分支</a>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd tensorflow</span><br><span class="line">git checkout branch_name  <span class="comment"># r1.9, r1.10, etc.</span></span><br></pre></td></tr></table></figure>
+<p>这里注意一下，必须选择与bazel对应版本的tensorflow，不管是GPU还是CPU，我就是没注意，踩了很多坑，具体版本对应请参考<a href="https://tensorflow.google.cn/install/source" target="_blank" rel="noopener">tensorflow官网</a>，我列出了目前官网的GPU版本对应，如下。还要注意一下自己环境gpu驱动cuda、cudnn的版本。</p>
+<p><img src="E:\Git\hexopath\themes\yilia\source\img\tensorflow_version.PNG" alt=""></p>
+</li>
+</ul>
+<ul>
+<li><p>通过在 TensorFlow 源代码树的根目录下运行以下命令来配置编译系统：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
+<p><strong>这一步如果想安装gpu版本，在cuda选项选择yes，其他要不是默认，要不是no，很简单，配错了重新配，这个没事。</strong></p>
+</li>
+</ul>
+<ul>
+<li><p>开始编译，两种方式cpu、gpu，需要等待好长时间，因为下载东西太多：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bazel build --config=opt //tensorflow:libtensorflow_cc.so</span><br><span class="line">bazel build --config=opt --config=cuda //tensorflow:libtensorflow_cc.so</span><br></pre></td></tr></table></figure>
+<p>编译正常完成后，会在<code>bazel-bin/tensorflow/</code>文件夹下生产<code>libtensorflow_cc.so</code>和<code>libtensorflow_framework.so</code>这两个动态库文件。</p>
+<p><strong>注：如果这一步报错，肯定你的tensorflow、bazel、cuda、cudnn版本不对应，所以编译之前的工作很重要，一不小心就掉进了坑。</strong></p>
+</li>
+</ul>
+<ul>
+<li><p>如果到这一步编译顺利完成，那就基本大功告成，还需要运行一个脚本build_all_xxx.sh（哪个操作环境运行哪个），我的是linux，安装依赖包：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd tensorflow/contrib/makefile</span><br><span class="line">sh build_all_linux.sh</span><br></pre></td></tr></table></figure>
+<p>完成后会生成一个<strong>gen</strong>文件夹，里面都是依赖库。</p>
+<p>注：如果网快的话，很快，我的公司网就超级慢，等了好久。</p>
+</li>
+</ul>
+<ul>
+<li>至此，大功告成，是不是很简单。<strong>如果编译成功请给个赞，谢谢。</strong></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/learngit/categories/技术基础//" class="article-tag-list-link color5">技术基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/learngit/2019/07/06/Tensorflow-gpu源码gcc编译/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-会声会影x9学习历程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -212,95 +350,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/learngit/2019/06/18/会声会影x9学习历程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Dragon深度框架之可微分编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/learngit/2018/03/15/Dragon深度框架之可微分编程/">Dragon深度框架之可微分编程</a>
-    </h1>
-  
-
-        
-        <a href="/learngit/2018/03/15/Dragon深度框架之可微分编程/" class="archive-article-date">
-  	<time datetime="2018-03-15T12:41:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是可微分编程？"><a href="#什么是可微分编程？" class="headerlink" title="什么是可微分编程？"></a>什么是可微分编程？</h2>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Dragon</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/learngit/categories/技术框架//" class="article-tag-list-link color5">技术框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/learngit/2018/03/15/Dragon深度框架之可微分编程/">展开全文 >></a>
         </p>
       
 
@@ -419,19 +468,19 @@
 
 
   
-    <article id="post-Dragon深度框架之虚拟风格编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Dragon深度框架之可微分编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/learngit/2018/03/15/Dragon深度框架之虚拟风格编程/">Dragon深度框架之虚拟风格编程</a>
+      <a class="article-title" href="/learngit/2018/03/15/Dragon深度框架之可微分编程/">Dragon深度框架之可微分编程</a>
     </h1>
   
 
         
-        <a href="/learngit/2018/03/15/Dragon深度框架之虚拟风格编程/" class="archive-article-date">
+        <a href="/learngit/2018/03/15/Dragon深度框架之可微分编程/" class="archive-article-date">
   	<time datetime="2018-03-15T12:41:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-15</time>
 </a>
         
@@ -439,7 +488,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Theano-Dragon"><a href="#Theano-Dragon" class="headerlink" title="Theano @ Dragon"></a>Theano @ Dragon</h2>
+        <h2 id="什么是可微分编程？"><a href="#什么是可微分编程？" class="headerlink" title="什么是可微分编程？"></a>什么是可微分编程？</h2>
         
       
 
@@ -478,7 +527,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/learngit/2018/03/15/Dragon深度框架之虚拟风格编程/">展开全文 >></a>
+          <a class="article-more-a" href="/learngit/2018/03/15/Dragon深度框架之可微分编程/">展开全文 >></a>
         </p>
       
 
@@ -636,6 +685,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Dragon</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
               </li>
              
               <li class="article-tag-list-item">

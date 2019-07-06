@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://GaoJianchao.github.io/learngit">
-  <title>Archives: 2019/6 | 高建超的博客</title>
+  <title>Tensorflow-gpu源码gcc编译 | 高建超的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="高建超的博客">
-<meta property="og:url" content="https://GaoJianchao.github.io/learngit/archives/2019/06/index.html">
+  <meta name="description" content="c++版本的tensorflow-gpu。">
+<meta name="keywords" content="深度学习,tensorflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensorflow-gpu源码gcc编译">
+<meta property="og:url" content="https://GaoJianchao.github.io/learngit/2019/07/06/Tensorflow-gpu源码gcc编译/index.html">
 <meta property="og:site_name" content="高建超的博客">
+<meta property="og:description" content="c++版本的tensorflow-gpu。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="e:/Git/hexopath/themes/yilia/source/img/tensorflow_version.PNG">
+<meta property="og:updated_time" content="2019-07-06T01:33:01.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高建超的博客">
+<meta name="twitter:title" content="Tensorflow-gpu源码gcc编译">
+<meta name="twitter:description" content="c++版本的tensorflow-gpu。">
+<meta name="twitter:image" content="e:/Git/hexopath/themes/yilia/source/img/tensorflow_version.PNG">
   
     <link rel="alternative" href="/atom.xml" title="高建超的博客" type="application/atom+xml">
   
@@ -154,48 +161,131 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Tensorflow-gpu源码gcc编译" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/learngit/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/learngit/2019/06/18/会声会影x9学习历程/" class="archive-article-date">
-  	<time datetime="2019-06-18T15:03:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/learngit/2019/06/18/会声会影x9学习历程/">会声会影x9学习历程</a>
+    <h1 class="article-title" itemprop="name">
+      Tensorflow-gpu源码gcc编译
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/learngit/2019/07/06/Tensorflow-gpu源码gcc编译/" class="archive-article-date">
+  	<time datetime="2019-07-06T01:28:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Tensorflow-gpu源码linux-gcc编译"><a href="#Tensorflow-gpu源码linux-gcc编译" class="headerlink" title="Tensorflow-gpu源码linux-gcc编译"></a>Tensorflow-gpu源码linux-gcc编译</h1><p>最近接到公司的一个任务，需要配置c++版本的tensorflow-gpu，刚开始的时候一脸懵逼，只会python的我对C++感到很惧怕，但是为了完成任务还得干…….下面就是编译tensorflow的各种坑，其实都是版本问题。</p>
+<h2 id="安装bazel"><a href="#安装bazel" class="headerlink" title="安装bazel"></a>安装bazel</h2><ul>
+<li><p>首先，要安去官网github上下载对应编译tensorflow版本的bazel。</p>
+<blockquote>
+<p>download the Bazel binary installer named <strong>bazel-<version>-installer-linux-x86_64.sh</version></strong> from the <a href="https://github.com/bazelbuild/bazel/releases" target="_blank" rel="noopener">Bazel releases page on GitHub.</a></p>
+</blockquote>
+</li>
+<li><p>在linux环境下修改.sh权限，一般下载下来需要修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x bazel-&lt;version&gt;-installer-linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后执行sh就可以了，别忘记加‘–user’参数，否则安装失败：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./bazel-&lt;version&gt;-installer-linux-x86_64.sh --user</span><br><span class="line">sh ./bazel-&lt;version&gt;-installer-linux-x86_64.sh --user</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="编译tensorflow-gpu"><a href="#编译tensorflow-gpu" class="headerlink" title="编译tensorflow-gpu"></a>编译tensorflow-gpu</h2><p>原来用tensorflow只是用于python语言，直接pip install tensorflow==X.X命令就搞定，太方便了，这猛地来个gcc编译tensorflow还不适应，那也得弄啊。</p>
+<ul>
+<li><p>使用 <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> 克隆 <a href="https://github.com/tensorflow/tensorflow" target="_blank" rel="noopener">TensorFlow 代码库</a>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow.git</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>代码库默认为 <code>master</code> 开发分支。您也可以检出要编译的<a href="https://github.com/tensorflow/tensorflow/releases" target="_blank" rel="noopener">版本分支</a>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd tensorflow</span><br><span class="line">git checkout branch_name  <span class="comment"># r1.9, r1.10, etc.</span></span><br></pre></td></tr></table></figure>
+<p>这里注意一下，必须选择与bazel对应版本的tensorflow，不管是GPU还是CPU，我就是没注意，踩了很多坑，具体版本对应请参考<a href="https://tensorflow.google.cn/install/source" target="_blank" rel="noopener">tensorflow官网</a>，我列出了目前官网的GPU版本对应，如下。还要注意一下自己环境gpu驱动cuda、cudnn的版本。</p>
+<p><img src="E:\Git\hexopath\themes\yilia\source\img\tensorflow_version.PNG" alt=""></p>
+</li>
+</ul>
+<ul>
+<li><p>通过在 TensorFlow 源代码树的根目录下运行以下命令来配置编译系统：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
+<p><strong>这一步如果想安装gpu版本，在cuda选项选择yes，其他要不是默认，要不是no，很简单，配错了重新配，这个没事。</strong></p>
+</li>
+</ul>
+<ul>
+<li><p>开始编译，两种方式cpu、gpu，需要等待好长时间，因为下载东西太多：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bazel build --config=opt //tensorflow:libtensorflow_cc.so</span><br><span class="line">bazel build --config=opt --config=cuda //tensorflow:libtensorflow_cc.so</span><br></pre></td></tr></table></figure>
+<p>编译正常完成后，会在<code>bazel-bin/tensorflow/</code>文件夹下生产<code>libtensorflow_cc.so</code>和<code>libtensorflow_framework.so</code>这两个动态库文件。</p>
+<p><strong>注：如果这一步报错，肯定你的tensorflow、bazel、cuda、cudnn版本不对应，所以编译之前的工作很重要，一不小心就掉进了坑。</strong></p>
+</li>
+</ul>
+<ul>
+<li><p>如果到这一步编译顺利完成，那就基本大功告成，还需要运行一个脚本build_all_xxx.sh（哪个操作环境运行哪个），我的是linux，安装依赖包：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd tensorflow/contrib/makefile</span><br><span class="line">sh build_all_linux.sh</span><br></pre></td></tr></table></figure>
+<p>完成后会生成一个<strong>gen</strong>文件夹，里面都是依赖库。</p>
+<p>注：如果网快的话，很快，我的公司网就超级慢，等了好久。</p>
+</li>
+</ul>
+<ul>
+<li>至此，大功告成，是不是很简单。<strong>如果编译成功请给个赞，谢谢。</strong></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/learngit/img/AliPayQR.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/learngit/img/WeChatQR.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">会声会影</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -208,17 +298,132 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://GaoJianchao.github.io/learngit/2019/07/06/Tensorflow-gpu源码gcc编译/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/learngit/2019/06/18/会声会影x9学习历程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">会声会影x9学习历程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Tensorflow-gpu源码linux-gcc编译"><span class="toc-number">1.</span> <span class="toc-text">Tensorflow-gpu源码linux-gcc编译</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装bazel"><span class="toc-number">1.1.</span> <span class="toc-text">安装bazel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译tensorflow-gpu"><span class="toc-number">1.2.</span> <span class="toc-text">编译tensorflow-gpu</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDcxMS8xMTI0OA">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+    
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -244,8 +449,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
