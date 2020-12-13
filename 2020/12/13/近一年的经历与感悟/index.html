@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="高建超的博客">
 <meta property="og:description" content="从2019年9月到2020年12月中旬，这段时间参与了很多项目，经历了工作上各种酸甜苦辣：从开始的自卑、无助、困惑、迷茫……到最后的自豪、高兴、喜悦、成就……这一切的一切好像做了一个好长的梦~~~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-13T08:05:48.482Z">
+<meta property="og:updated_time" content="2020-12-13T08:36:10.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="近一年的经历与感悟">
 <meta name="twitter:description" content="从2019年9月到2020年12月中旬，这段时间参与了很多项目，经历了工作上各种酸甜苦辣：从开始的自卑、无助、困惑、迷茫……到最后的自豪、高兴、喜悦、成就……这一切的一切好像做了一个好长的梦~~~">
@@ -186,20 +186,13 @@
 <p>albert源代码链接：<a href="https://github.com/brightmart/albert_zh" target="_blank" rel="noopener">https://github.com/brightmart/albert_zh</a></p>
 <h3 id="AlBert实战应用"><a href="#AlBert实战应用" class="headerlink" title="AlBert实战应用"></a>AlBert实战应用</h3><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>从本科到研究生，从研究生到毕业找工作，我一直被困在一个错误的圈子里面不能自拔：我总认为算法模型很重要，好的模型才能有好效果，复杂的模型才能比简单的模型更会容易表现出色，这真的是个很大误区。工作了做过项目才知道：其实在算法应用过程中，用什么样的模型，并不是那么的重要，<strong>数据才是算法落地的王道</strong>，换句话说，数据的准确性才是模型好坏的关键。</p>
 <h5 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h5><p>用albert模型做过垂直搜索多个品类的实战落地，xs、application、xw等。从搜索日志中抽取coquery、pv、uv、session_num等数据，然后用规则的方式实现自动化打标：取随机不去重query进行小样本的调优数据工作（这一步很重要），不断地进行调优，数据集达到90%+的准确率可以批量生成所需数据集，再进行抽取join数据集的特征，然后对模型进行fune，最后对测试集进行不断分析（找出badcase），进行反复调优模型工作，最后可能会达到很好的表现效果。</p>
-<h5 id="代码修改"><a href="#代码修改" class="headerlink" title="代码修改"></a>代码修改</h5><h6 id="多GPU并行训练"><a href="#多GPU并行训练" class="headerlink" title="多GPU并行训练"></a>多GPU并行训练</h6><ol>
-<li><p>bert的opmitizer改为并行merger：</p>
-<p>源码bert的重写了tf.train.Optimizer的apply_gradients;</p>
-<p>tf的Adam可以应用到并行处理方式上，只是没有权重权重衰减方法;</p>
-<p>自定义Adam优化器：tf自带的Adam+源码bertAdamWeightDecayOptimizer实现.</p>
-</li>
-<li><p>修改modeling.py 338行， assignment_map[name]=name_to_variable[name];</p>
-</li>
-<li><p>修改Runconfig.</p>
-</li>
-</ol>
-<h6 id="一次加载多次预测"><a href="#一次加载多次预测" class="headerlink" title="一次加载多次预测"></a>一次加载多次预测</h6><ol>
-<li>export_savemodel(export_dir, serving_input_fn).</li>
-</ol>
+<h5 id="代码修改"><a href="#代码修改" class="headerlink" title="代码修改"></a>代码修改</h5><h6 id="多GPU并行训练"><a href="#多GPU并行训练" class="headerlink" title="多GPU并行训练"></a>多GPU并行训练</h6><p>1、bert的opmitizer改为并行merger：</p>
+<p>   源码bert的重写了tf.train.Optimizer的apply_gradients;</p>
+<p>   tf的Adam可以应用到并行处理方式上，只是没有权重权重衰减方法;</p>
+<p>   自定义Adam优化器：tf自带的Adam+源码bertAdamWeightDecayOptimizer实现.</p>
+<p>2、修改modeling.py 338行， assignment_map[name]=name_to_variable[name];</p>
+<p>3、修改Runconfig.</p>
+<h6 id="一次加载多次预测"><a href="#一次加载多次预测" class="headerlink" title="一次加载多次预测"></a>一次加载多次预测</h6><p>1、export_savemodel(export_dir, serving_input_fn).</p>
 <h2 id="c-项目的开发应用"><a href="#c-项目的开发应用" class="headerlink" title="c++项目的开发应用"></a>c++项目的开发应用</h2><h4 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h4><p>还记得之前立下过一个flag：攻克c++。虽然这一年没有仔细系统地的学习过c++，但是通过各种线上开发的项目，对c++有了更加深刻的领悟：c++入门难，但是很通用、实用。作为一名算法工程师，其实很多时候我们不必去关心框架代码应该怎么做到兼容性、可维护能力强，因为这些属于框架工程同学的工作范畴。但是有些时候，算法同学的算法模型要上线，工程同学的排期计划可能把你的项目计划排在了很后很后，这就是很反感的事情（你这边着急上线，他们工程却没有时间去管），更反感的事情是：算法需求工程同学听不懂，一个需要做了大半月可能才明白怎么回事，这就很让算法同学头疼。</p>
 <p>这时候我们不能干等，我们算法的同学就需要有基本的开发能力（无论哪种语言），更困难的是：工程框架开发的不是那么中意，总要写一堆hard code，这就很头疼。因为算法同学没有接触过这套框架的，就需要先去把框架代码读一遍，然后搞懂你的代码应该加在哪里，配置应该怎么调用，怎么配置等等，熟悉完了框架代码，需要自己去开发算法模型的词典库配置代码，算法逻辑代码，接口代码等，这相当于把框架自己又维护了一遍，一个算法的维护了一个框架，同时还要保证算法效果。这种算法工程师被主管称为：“超级算法工程师”（会开发，会框架，会算法，会上线）</p>
 <p>c++框架代码的编译目前接触了三种: cmake、scons、autoconf，虽然我从0到有不太会写，但是可以照猫画虎，总可以写出来，最后还想说，日志、单测很重要，性能、稳定测试更重要，上线之前一定要做足了测试，不然上线后会哭（一堆事）。</p>
@@ -535,11 +528,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kNN</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color2">MATLAB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kNN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,7 +544,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">决策树算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +552,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">统计学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">MATLAB</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,15 +572,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">决策树算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">隐马尔可夫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
             
             <div class="clearfix"></div>
