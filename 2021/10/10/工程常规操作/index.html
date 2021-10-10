@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://GaoJianchao.github.io/learngit">
-  <title>Archives: 2018/3 | 高建超的博客</title>
+  <title>工程常规操作 | 高建超的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="高建超的博客">
-<meta property="og:url" content="https://GaoJianchao.github.io/learngit/archives/2018/03/page/2/index.html">
+  <meta name="description" content="做了两年的算法工程，接触了多个项目，从中也点点滴滴记录了很多，在此进行一些总结性的点吧。">
+<meta name="keywords" content="工程工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工程常规操作">
+<meta property="og:url" content="https://GaoJianchao.github.io/learngit/2021/10/10/工程常规操作/index.html">
 <meta property="og:site_name" content="高建超的博客">
+<meta property="og:description" content="做了两年的算法工程，接触了多个项目，从中也点点滴滴记录了很多，在此进行一些总结性的点吧。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-10-10T09:50:21.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高建超的博客">
+<meta name="twitter:title" content="工程常规操作">
+<meta name="twitter:description" content="做了两年的算法工程，接触了多个项目，从中也点点滴滴记录了很多，在此进行一些总结性的点吧。">
   
     <link rel="alternative" href="/atom.xml" title="高建超的博客" type="application/atom+xml">
   
@@ -154,135 +159,233 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-工程常规操作" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/learngit/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/learngit/2018/03/09/统计机器学习基础概念/" class="archive-article-date">
-  	<time datetime="2018-03-09T13:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/learngit/2018/03/09/统计机器学习基础概念/">统计机器学习基本概念</a>
+    <h1 class="article-title" itemprop="name">
+      工程常规操作
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/learngit/2021/10/10/工程常规操作/" class="archive-article-date">
+  	<time datetime="2021-10-10T09:49:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>做了两年的算法工程，接触了多个项目，从中也点点滴滴记录了很多，在此进行一些总结性的点吧。</p>
+<a id="more"></a>
+<h2 id="secureCTR、screen"><a href="#secureCTR、screen" class="headerlink" title="secureCTR、screen"></a>secureCTR、screen</h2><p>首先，一般的互联网公司入职后，每人发个工作的笔记本，所有的开发任务可能都需要连接公司各个地方的服务器，我们所有的代码、数据等都会在服务器上进行，服务器是个好东西（不怕断电、不怕机器出故障数据丢失等，反正好处一大堆，在这就不一一列举了）。那么问题来了，笔记本怎么连接服务器工作呢，很多工作后的码农会想到xshell、secureCTR等软件，作为小白，我开始用过xshell，用了将近两年吧（其实在上学的时候就一直用，学校老师就这么教的，哈哈~~），但是这个找不到破解版的话很头疼，过段时间不能用了，后来我也找到了破解xshell6的方法。言归正传，现在我基本上用的是secureCTR，个人认为界面比较简洁吧。</p>
+<ol>
+<li>alt+c   打开导航栏选择会话</li>
+<li>alt+f+n  克隆会话</li>
+<li>alt+1/2/3/4… 切换会话窗口</li>
+<li>session目录下ini的GSSAPI METHOD改为none，连接更快；</li>
+<li>选项  会话设置颜色和主题</li>
+</ol>
+<p>当然，配上screen插件工具，可以更大程度上提高工作效率。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">1.设置.screenrc</span><br><span class="line">escape ^Zz</span><br><span class="line">altscreen on</span><br><span class="line">hardstatus on</span><br><span class="line">bind = resize =</span><br><span class="line">bind + resize +10</span><br><span class="line">bind - resize -10</span><br><span class="line">bind _ resize max</span><br><span class="line">bind ) resize min</span><br><span class="line"></span><br><span class="line">2.ctrl-a（escape ^Zz改变为c-z） :</span><br><span class="line">       c创建</span><br><span class="line">       S上下分屏</span><br><span class="line">       |左右分屏</span><br><span class="line">       ：resize 改变窗口大小</span><br><span class="line">       ：resize max 最大化窗口</span><br><span class="line">       ：resize min最小化窗口</span><br><span class="line">       ：resize =平等分割窗口</span><br><span class="line">       分屏下关闭当前窗口X</span><br><span class="line">       分屏下关闭其他窗口Q</span><br><span class="line">       分屏切换tab</span><br><span class="line">       切换窗口0-9</span><br><span class="line">       切换下一个窗口n</span><br><span class="line">       切换上一个窗口p</span><br><span class="line">       d分离窗口</span><br><span class="line">       &quot;列出所有窗口，选择窗口</span><br><span class="line">       &apos; switch to window输入编号或者name</span><br><span class="line">       A重命名当前窗口name</span><br><span class="line">       K确认关闭当前窗口</span><br><span class="line">       [进入copy paste模式：</span><br><span class="line">           y标记一行</span><br><span class="line">           空格设置标记</span><br><span class="line">            W标记单词</span><br><span class="line">       ]粘贴buffer中内容</span><br><span class="line">  切换窗口</span><br><span class="line">  3. screen -ls显示所有列表</span><br><span class="line">       -r恢复窗口</span><br><span class="line">       exit完全退出窗口</span><br><span class="line">  4.设置.bashrc命令alias：</span><br><span class="line">    alias sc=&apos;screen&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="vim的使用"><a href="#vim的使用" class="headerlink" title="vim的使用"></a>vim的使用</h2><p>大多数写c++代码的都离不开vim，vim加上插件可以说无所不能。</p>
+<p>附：vim_advanced_usage.pdf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1.Q进入Ex模式，输入多行命令，vi退出或者q!</span><br><span class="line">2.gh进入选择模式，选中的区域键盘输入会替换</span><br><span class="line">3.普通模式e到单词尾部，a增加字符</span><br><span class="line">常用操作：</span><br><span class="line">    1.上下左右hjkl</span><br><span class="line">    2.翻页Ctrl f   b</span><br><span class="line">    3.去指定行30G</span><br><span class="line">    4.Ctrl g显示行位置</span><br><span class="line">    5.fx向前查找x  Fx向后查找x</span><br><span class="line">    6.0  $首尾</span><br><span class="line">    7.单词移动 w e  b</span><br><span class="line">    8.光标不动翻屏zz  zt zb</span><br><span class="line">    9.HLM光标跳转到顶部中部底部</span><br><span class="line">    10.移动到跳转位置ctrl o  i</span><br><span class="line">    11.zf  l  zc折叠</span><br><span class="line">    12.Ctrl z后台运行  fg前台运行</span><br></pre></td></tr></table></figure>
+<h2 id="工程经验"><a href="#工程经验" class="headerlink" title="工程经验"></a>工程经验</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">1.多线程不能更改基类的变量，线程不安全；</span><br><span class="line">2.pattern可以用unknown词因子调节，忽略停用词，将unknown的字个数和剔除pattern后留下的tag字个数的字节总数作为最后unknown的字节数，如果小于设定的因子乘以已知字节数，认为有意图。</span><br><span class="line">3.组合数太多导致延时过高，耗时出现毛刺现象；</span><br><span class="line">4.pb可以直接排序：</span><br><span class="line">  std::sort（xx.mutable_entity()-&gt;begin(),</span><br><span class="line">              xx.mutable_entity()-&gt;end(),</span><br><span class="line">              [](const yyy&amp; a, const  yyy&amp; b)&#123;</span><br><span class="line">               return a.score  &gt;  b.score;</span><br><span class="line">         &#125;);</span><br><span class="line"></span><br><span class="line">5.监控耗时，core，内存稳定性，重启，case验证，zk结点，词典格式，加载词典是否有误，词典是否更新，词典数据量变化程度;</span><br><span class="line">6.json字符串解析引号加反斜杠转义</span><br><span class="line">7.类的成员变量要初始化，可能有野指针</span><br><span class="line">8.普通指针定义后，转为智能指针后如果智能指针释放，普通指针将成为野指针</span><br><span class="line">9.for  while逐行读取文件有区别，for会把每行空格分割开读取，while会读取整行</span><br><span class="line">10.判断grep为空，$?==1为空或者-z $res</span><br><span class="line">11.plt.plot(x,y,color=&quot;r&quot;,label=&quot;word&quot;)</span><br><span class="line">12.工程依赖第三方，第三方分支要个工程代码兼容，编译之前先确定so文件是否是兼容版本，否则会出core。</span><br><span class="line">13.主工程依赖的库版本尽量和依赖库依赖的相同库版本保持一致，否则so文件会出问题</span><br><span class="line">14.写策略代码需要注意此类型策略是否兼容整个代码策略框架</span><br><span class="line">15.ftp  lcd  d:\ftp    </span><br><span class="line">             put  xxx</span><br><span class="line">             get  xxx</span><br><span class="line">16.定位core问题，gdb bin core-file</span><br><span class="line">   打印core信息 bt  </span><br><span class="line">   指定线程     f 线程号    </span><br><span class="line">   打印局部变量  i locals</span><br><span class="line">21.std::sort是快排，不稳定，std::stable_sort是归并排序，稳定</span><br><span class="line">22.tr &apos;\n&apos; &apos;,&apos; 命令替换\n为,分割</span><br><span class="line">23.win+p可扩展屏幕  +   电源设置，关闭盖子</span><br></pre></td></tr></table></figure>
+<h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.bash文件使用awk带空格变量打印，awk -va=&quot;$a&quot; &quot;&#123;print &quot;A=&quot;a&#125;&quot;</span><br><span class="line">2.去除单个字符 awk substr($1,2)</span><br><span class="line">3.符合条件求和 awk &apos;/AAA/&#123;sum+=$2&#125;;END&#123;print sum&#125;&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="es的使用"><a href="#es的使用" class="headerlink" title="es的使用"></a>es的使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.term用法：</span><br><span class="line">   不进行切词的完全匹配，如果想查询多个term取or，需要用terms语法;</span><br><span class="line">   如果进行查询多个term取and，用bool:&#123;must:[&#123;term:&#123;title:love&#125;&#125;, ..]&#125;;必须小写；</span><br><span class="line">2. match进行切词取or的匹配方式;</span><br><span class="line">   短语搜索match_phrase进行取and操作，并且位置挨着；</span><br><span class="line">3.must should 同时存在，should做boost加分逻辑。</span><br><span class="line">4.召回阶段可以用联合字段兜底召回，再通过意图 ner做加分逻辑 。boost加分</span><br><span class="line">5.match可以指定分析器，和匹配度</span><br><span class="line">6.function_score  field_value_factor  boost_mode 可以对相关性和热度加权算分</span><br><span class="line">7.boosting positive negative negative_boost进行加权或打压</span><br><span class="line">8.keyword类型不支持全文搜索，没有切词需要term全匹配，无论用match还是term方式召回，都是全匹配的</span><br></pre></td></tr></table></figure>
+<h2 id="spark的使用"><a href="#spark的使用" class="headerlink" title="spark的使用"></a>spark的使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1.mapPartitions可以一个机器加载一次词典后，遍历处理；</span><br><span class="line">2.flatMap可以将list中元素打平；</span><br><span class="line">3.repartitions分区，进行shuffle;</span><br><span class="line">4.textFile读取文件为rdd；</span><br><span class="line">5.saveAsTextFile保存文件；</span><br><span class="line">6.persist缓存到硬盘</span><br><span class="line">7.cache缓存内存</span><br><span class="line">8.--files上传词典</span><br><span class="line">9.sortBy(lambda x:x[1])</span><br><span class="line">10.union rdd</span><br><span class="line">11.count()</span><br><span class="line">12.leftOuterJoin</span><br><span class="line">13.core*num /task=1/2  1/3</span><br><span class="line">14.mapValues(list)</span><br><span class="line">15.spark.driver.maxResultSize=0</span><br><span class="line">16.spark.driver.memory=30g</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --master yarn\</span><br><span class="line">     --deploy-mode client\   #cluster</span><br><span class="line">     --driver-memory 4g\</span><br><span class="line">     --queue queue_name\</span><br><span class="line">     --conf spark,default.parallelism=2000\</span><br><span class="line">     --executor-memory 10g\</span><br><span class="line">     --num-executors 30\</span><br><span class="line">     --executor-cores 10\</span><br><span class="line">     --conf spark.driver.maxResultSize=0\</span><br><span class="line">     --conf spark.driver.memory=30g\</span><br><span class="line">     --conf spark.kryoserializer.buffer.max=1g\</span><br><span class="line">     --properties-file spark-default-2.conf\</span><br><span class="line">     --py-files depand.zip\  #添加依赖文件</span><br><span class="line">     --files data1,data2\    #添加数据文件</span><br><span class="line">     spark.py  $1 $2 $3</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/learngit/img/AliPayQR.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/learngit/img/WeChatQR.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">统计学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工程工具</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/learngit/categories/技术基础//" class="article-tag-list-link color5">技术基础</a>
+        			<a href="/learngit/categories/工程技术//" class="article-tag-list-link color5">工程技术</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://GaoJianchao.github.io/learngit/2021/10/10/工程常规操作/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/learngit/2018/03/05/hello-world/" class="archive-article-date">
-  	<time datetime="2018-03-05T02:33:01.052Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/learngit/2021/10/10/git的常规操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git的常规操作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/learngit/2018/03/05/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/learngit/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#secureCTR、screen"><span class="toc-number">1.</span> <span class="toc-text">secureCTR、screen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim的使用"><span class="toc-number">2.</span> <span class="toc-text">vim的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工程经验"><span class="toc-number">3.</span> <span class="toc-text">工程经验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#awk"><span class="toc-number">4.</span> <span class="toc-text">awk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#es的使用"><span class="toc-number">5.</span> <span class="toc-text">es的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spark的使用"><span class="toc-number">6.</span> <span class="toc-text">spark的使用</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+  
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDcxMS8xMTI0OA">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+    
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/learngit/archives/2018/03/">&laquo; Prev</a><a class="page-number" href="/learngit/archives/2018/03/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -309,8 +412,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
