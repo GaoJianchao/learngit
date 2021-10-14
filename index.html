@@ -156,6 +156,291 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-算法经验总结-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/learngit/2021/10/14/算法经验总结-1/">算法经验总结-1</a>
+    </h1>
+  
+
+        
+        <a href="/learngit/2021/10/14/算法经验总结-1/" class="archive-article-date">
+  	<time datetime="2021-10-14T13:47:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>算法能力的建设。。。。</p>
+<h2 id="ner"><a href="#ner" class="headerlink" title="ner"></a>ner</h2><p>crf++：</p>
+<p>1.生成实体标注数据（人工标注或者挖掘，cp数据）；<br>2.query根据实体自动标注或者人工打标；<br>3.配置模板或根据query生产模板；<br>5.生产训练数据。</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>模型汇总：lightGBM 、xgb、ranknet、lambdarank、lambdamart、pointwise、pairwise、listwise</p>
+<p>特征工程</p>
+<p>单边特征：<br>    1.user意图id，ner、纠错，语言模型<br>    2.doc是否有ner特征，意图特征；<br>双边特征：<br>   1.语言模型相似度<br>   2.编辑距离，cqr，ctr，BM25，距离比例<br>   3.共现session数，共现query session数，共现query PV UV，共现次数排名，共现拼音数，共现字符数<br>   4.是否品牌，型号，系列，产品，意图匹配<br>评估标准:<br>    1.正逆序<br>    2.正确顺序比值<br>    3.ngcd</p>
+<h2 id="分析问题能力"><a href="#分析问题能力" class="headerlink" title="分析问题能力"></a>分析问题能力</h2><p>对于badcase分类：<br>    1.应该有结果，却没有结果<br>    2.应该没有结果，却有结果<br>    3.有结果但是结果不相关<br>    4.有结果排序不是最优<br>分析：<br>    1.对于第一种，首先判断有无资源，如果有判断是切词，改写，纠错，意图无召回还是ner错误导致的没有结果；如果没有资源直接跳过；<br>    2.对于第二种，是意图判断错误；<br>    3.对于第三种，看是是否需要改写，纠错。ner，切词导致的拼串有错误;<br>    4.类似第三种分析思路。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">搜索算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">自然语言处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/learngit/categories/实战项目//" class="article-tag-list-link color5">实战项目</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/learngit/2021/10/14/算法经验总结-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-query理解-纠错" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/learngit/2021/10/14/query理解-纠错/">query理解-纠错</a>
+    </h1>
+  
+
+        
+        <a href="/learngit/2021/10/14/query理解-纠错/" class="archive-article-date">
+  	<time datetime="2021-10-14T13:44:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>纠错作为搜索引擎query理解领域的的不可或缺的一部分。</p>
+<h2 id="常见错误类型"><a href="#常见错误类型" class="headerlink" title="常见错误类型"></a>常见错误类型</h2><ul>
+<li><p>[ ] 音似：</p>
+<p>同音字 “度假”–&gt;“渡假”</p>
+<p>模糊音 “福建”–&gt;“胡建”</p>
+<p>方言 灰机–&gt;飞机</p>
+</li>
+<li><p>[ ] 形似</p>
+<p>高粱-高梁</p>
+<p>壬者荣耀-王者荣耀</p>
+</li>
+<li><p>[ ] 多字</p>
+<p>武当一剑师-武当一剑</p>
+</li>
+<li><p>[ ] 少字</p>
+<p>猪佩奇-小猪佩奇</p>
+</li>
+<li><p>[ ] 知识性错误</p>
+<p>蜡笔小熊-蜡笔小新</p>
+</li>
+</ul>
+<h2 id="纠错方案"><a href="#纠错方案" class="headerlink" title="纠错方案"></a>纠错方案</h2><ul>
+<li><p>[ ] 基于规则方式</p>
+<p>词典检测+编辑距离召回+拼音相似度排序</p>
+</li>
+<li><p>[ ] 基于N-gram语言模型的方式</p>
+<p>通过语言模型的ppl来进行错误检测和纠错</p>
+</li>
+<li><p>[ ] 基于HMM模型的方式</p>
+<p>HMM是关于序列的概率模型，描述由隐藏的马尔可夫链随机生成观测序列的过程假设观测序列为待纠错Query，正确Query为不可观测的状态序列。所以这与纠错不谋而合。</p>
+</li>
+<li><p>[ ] 基于seq2seq深度模型的方式</p>
+<p>原始query进过embedding化后进入双向的encode，encode-decode层，最后解码出对应的纠错query。</p>
+<p>缺点是对没见过的正确语句，也极大可能给改错，即误纠率很高。</p>
+</li>
+<li><p>[ ] 基于MLM深度模型的方式</p>
+<p>例如：bert、soft-masked bert；</p>
+<p>虽然深度模型效果还算可以，但是线上预估的时间复杂度较高，并且不可解释、不可控，实际工程应用中还是要结合传统方法。</p>
+</li>
+</ul>
+<h2 id="研究现状"><a href="#研究现状" class="headerlink" title="研究现状"></a>研究现状</h2><h3 id="FASPell"><a href="#FASPell" class="headerlink" title="FASPell"></a>FASPell</h3><p>faspell整体上说是分成的两部分，一个是encoder部分，一个是decoder部分，decoder也就是论文种提到的CSD，其原理其实不复杂，encoder部分基本就是bert，先利用bert对输入的句子中每个字进行预测，预测出每个位置topn的潜在文字。接下来，decoder部分从笔画相似性和拼音相似性两个维度综合对topn中的文字进行rank，从而给出模型inference出的正确结果。faspell的重点部分其实还是前面的bert预测部分，当然你要是感兴趣，换成xlnet、gpt都是可以的faspell作者在训练时指出的，就是fine-tune时bert训练数据需要人工的对其每个字均进行mask，而不是任由bert那随机产生的15%几率来mask，作者目的在于强化模型对该垂直领域具备更加强的拟合度在原文中，作者在这部分提出一个训练的概念，这个训练并不是指神经网络的那种训练，而是根据训练集找到两个权重，分别是笔画的相似性权重和拼音的相似性权重，每个预测字使用：笔画权重<em>笔画相似度+拼音权重</em>拼音相似度，来得出每个预测字的整体置信度。</p>
+<p>通过训练一个以BERT为基础的深度降噪编码器(DAE)和以置信度-字音字行相似度为基础的解码器（CSD)进行中文拼写纠错。在DAE阶段，BERT可以动态生成候选集去取代传统的混淆集，而CSD通过计算置信度和字音字形相似度两个维度去取代传统的单一的阈值进行候选集的选择，提高纠错效果。</p>
+<p>Unicode标准的Ideographic Description Sequence(IDS)表征。描述汉字更细粒度字体的笔画结构和布局形式（相同的笔画和笔画顺序，例如：“牛”和“午”相似度不为1），比起纯笔画或者五笔编码等计算方式要精细在字音上，使用了所有的CJK语言中的汉字发音，本文用了普通话（MC)，粤语(CC)，日语(JO)，韩语(K)和越南语(V)中的发音，计算拼音的编辑距离作为相似度分值，最终做一个归一化操作。</p>
+<h3 id="SpellGCN"><a href="#SpellGCN" class="headerlink" title="SpellGCN"></a>SpellGCN</h3><p>现有方法尝试纳入汉字之间的相似性知识，然而，他们将相似性知识作为外部输入资源或仅仅是启发式规则。<br>本文使用图卷积网络来纳入汉字相似性知识，图卷积网络建模了字之间的先验依赖知识。<br>解决问题：之前引入模糊集的方法只是利用模糊集来挑选候选字，而不是显示地建模字符之间的关系。<br>本文提出新的方法将语音和形状的相似性信息整合到语义空间中。取每个字在bert最后一层的向量，接一个全连接做多分类，主要通过graph convolutional network(GCN）对字音和字形结构关系进行学习，并且将这种字音字形的向量融入到字的embedding中，在纠错分类的时候，纠错更倾向于预测为混淆集里的字。模型训练是一个end-to-end的过程，试验显示，在公开的中文纠错数据集上有一个较大的提升。<br>模型也主要分两部分组成：<br>第一部分：特征提取器<br>特征提取器基于12层的bert最后一层的输出。<br>第二部分：纠错分类模型<br>通过GCN学习字音字形相似结构信息，融合字的语义信息和字的结构信息，在分类层提高纠错准确率。<br>接下来我们具体看下GCN的结构组成部分：<br>SpellGCN的目标是学习映射函数将lll层节点向量Hl∈RN×DH^l\in\<br>mathbb{R}^{N\timesD}H<br>l∈RN×D通过卷积运算映射到新的节点向量Hl+1H^{l+1}H+1<br>这个映射函数主要有两个组件组成Graph Convolution Operation和AttentiveGraph<br>Combination Operation。<br>Graph Convolution Operation：<br>第一个公式：<br>因为我们采用了BERT作为抽取器，它有自己的学习语义空间，<br>所以我们从方程中去掉激活函数，使导出的表示与原始空间保持一致，而不是完全不同的空<br>间。在本文的实验中，也表明非线性激活如relu对于模型是无效的，将导致效果下降（这个没<br>有验证）。<br>Attentive Graph Combination Operation：<br>为了同时利用发音相似图和形状相似图的，下面使用注意力机制来得到包含两者信息的混合<br>向量：wa∈RD是一个可学习且各层共享的向量，β\betaβ是一个用来控制注意力权重平滑的超参数。在本文中作者认为β\betaβ对注意力机制起到重要作用。<br>输出：<br>在经过图卷积和注意力合并的操作后，我们得到一个第l层的向量表示Cl。为了保持提取<br>器的原始语义表示，我们将前面所有层的输出进行累加得到新的输出。</p>
+<h2 id="soft-masked-bert"><a href="#soft-masked-bert" class="headerlink" title="soft-masked bert"></a>soft-masked bert</h2><p>该网络模型串联了一个检测模型(BiGRU)和一个纠错模型(BERT)，双向的GRU模型输出每个token位置是错误词的概率，当错误概率为1时，退化为原生BERT模型纠错。<br>Soft-MaskedBert的大致原理是基于Bert从句子中的每一个字的候选字组中找到正确的<br>候选字进行纠错。<br>Soft-MakedBert将文本的纠错任务分为检测网络和纠错网络两个部分，纠错网络的输入<br>来自检测网络的输出，<br>通过soft masking将检测网络的输出字符特征添加mask embedding进行纠错。<br>假设输入的句长是128，embedding后的维度是768，batchsize就定为16好了，那么bert的embedding部分不会变，依旧是token_embedding+position_embedding+segment_embedding，得到的维度是（16，128，768），接下来将这些输入接入到一个双向的GRU里，输出是（16，128，1536）。此时接一个全链接（1536，768）再变回（16，128，768）。<br>此时得到的结果就是图中的pi，也就是说该tensor表示的是当前我这个字是是否是错别字<br>的可能性，当然此处只是检测，该改成啥它还不管。<br>这里要注意的是pi在计算前会经过一个sigmoid，换句话说，当这个自被认为是错别字时，<br>pi就接近1，否则则接近0。最终得出的ei’就是一个与bert输入同维度的embeddings：（16，128，768）。接下<br>来的事就都是跟bert一模一样的事了。<br>最后，还有个残差计算，bert的12层transformerblock的结果（16，128，768）要<br>与最开始的输入embedding：ei（16，128，768）进行想加，结果也是（16，128，768），然后接全链接和softmax就可以了。</p>
+<p>因为bert的预训练模型本身就很强大，其实很多基于bert改动的网络在预训练的基础上进行finetune后的结果都不会太差。令我疑惑的是smbert最后加的残差网络，ei是带有错字信息的输入内容，好不容易纠错<br>完的结果最后再加一个带有错误信息的原始输入，不是很懂。<br>优点：<br>对中文纠错分成错误检测和错误纠正，并给通过soft-masking技术将两者进行融合，减少bert的过纠问题，提高准确率；<br>缺点：<br>不包括少词和多词错误形式纠错<br>模型没有引入字音字形相似性约束</p>
+<p>参考论文集：<a href="https://www.pianshen.com/article/85931593325/" target="_blank" rel="noopener">https://www.pianshen.com/article/85931593325/</a></p>
+<p>参考CSDN：<a href="https://blog.csdn.net/BGoodHabit/article/details/114589007?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EOPENSEARCH%7Edefault-12.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EOPENSEARCH%7Edefault-12.control" target="_blank" rel="noopener">https://blog.csdn.net/BGoodHabit/article/details/114589007?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EOPENSEARCH%7Edefault-12.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EOPENSEARCH%7Edefault-12.control</a></p>
+<p>transform代码阅读：<a href="http://fancyerii.github.io/2019/03/09/transformer-codes/" target="_blank" rel="noopener">http://fancyerii.github.io/2019/03/09/transformer-codes/</a></p>
+<h2 id="纠错框架"><a href="#纠错框架" class="headerlink" title="纠错框架"></a>纠错框架</h2><h3 id="pycorrector"><a href="#pycorrector" class="headerlink" title="pycorrector"></a>pycorrector</h3><p>pycorrector通用纠错模块是github上的开源项目，它提供了一种规则式检错、纠错方案，该方法因逻辑清晰、不依赖大量标注样本从而较容易实现落地，因此为广大研究者提供了良好的借鉴意义。该方案是面向通用领域开发的，思路简单、易实现，但在垂直领域中容易得到较差的表现。</p>
+<p>错误检测：混淆集检测、OOV检测、语言模型检测；</p>
+<p>候选召回：同音同调、同音异调、形似；</p>
+<p>排序阶段：语言模型ppl、规则；</p>
+<p>检测：<br>    1.句子查找混淆词典的错词位置，加入错误点数组;<br>    2.未登录词加入错误点数组；<br>    3.语言模型ngram绝对离差值检测；</p>
+<p>纠错：<br>    1.切词<br>    2.每个term检测错误点<br>    3.如果当前term有错误，对每个错误点进行派生正确候选集，如果有多个候选集进行排序，选择最优的正确term, 拼装当前的term，进行下一个错误点纠错，直到所有错误点纠正完毕<br>    4.拼装所有term返回。</p>
+<h3 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h3><p>百度纠错系统凭借其海量用户点击语料训练了基于深度学习的序列标注模型，方法如下：</p>
+<p>错误检测：在错误检测部分，它利用10TB的无监督语料预训练Transformer/Lstm、CRF模型，再利用对齐语料（错误句子→正确句子）进行有监督学习该序列标注模型；</p>
+<p>候选召回：在候选召回部分，利用了对齐语料和对齐模型构建字级别、词级别、音级别的混淆字典，先利用字、音混淆字典初步召回候选，然后再利用词级别混淆字典和语言模型二次筛选候选，从而形成最终候选；</p>
+<p>候选排序：利用上下文DNN特征和人工提取的形音、词法、语义等特征一起训练GBDT&amp;LR的排序模型。</p>
+<h3 id="腾讯DCQC"><a href="#腾讯DCQC" class="headerlink" title="腾讯DCQC"></a>腾讯DCQC</h3><p>腾讯提出一套针对垂直业务的通用纠错框架——DCQC（Domain Common Query Correction），由召回层和决策层两层组成。该方法可以方便扩展到其他领域。</p>
+<p>召回层：每个领域建立属于自己的一个数据库，建立字和拼音两个维度的倒排索引，通过检索排序的方式召回一定量的候选；</p>
+<p>决策层：人工提取用户特征、拼音特征、字形特征等5种类型特征训练svm二分类模型用于候选排序。</p>
+<p>参考腾讯框架：<a href="https://cloud.tencent.com/developer/article/1030059" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1030059</a></p>
+<p>参考链接：</p>
+<p><a href="https://cloud.tencent.com/developer/article/1030059" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1030059</a></p>
+<p><a href="https://zhpmatrix.github.io/2019/02/01/rethinking-spellchecker/" target="_blank" rel="noopener">https://zhpmatrix.github.io/2019/02/01/rethinking-spellchecker/</a></p>
+<h2 id="尝试方案"><a href="#尝试方案" class="headerlink" title="尝试方案"></a>尝试方案</h2><h3 id="基于pycorrect规则离线方案"><a href="#基于pycorrect规则离线方案" class="headerlink" title="基于pycorrect规则离线方案"></a>基于pycorrect规则离线方案</h3><ul>
+<li>基于搜索日志的共现query使用规则产生一版候选集；</li>
+<li>候选集加入pycorrect中进行纠错检测、纠错召回；</li>
+<li>基于搜索日志全量数据跑出在线候选集，月度在亿级别；</li>
+</ul>
+<p>缺点：</p>
+<p>1、覆盖度不全，影响纠错召回能力；</p>
+<p>2、词典过于庞大，对机器性能要求大。</p>
+<p>具体流程：<br>    1.共现query进行编辑距离的规则限制，按照pv，编辑距离排序；<br>    2.实体join产生的共现候选集；<br>    3.实体和query进行反转去重排序；<br>    4.放入纠错框架中，进行纠错使用，预测所有浏览器query纠错。</p>
+<p>注：session  同一个用户五分钟内的搜索算为同一个session。</p>
+<h3 id="基于lightGBM的纠错方案"><a href="#基于lightGBM的纠错方案" class="headerlink" title="基于lightGBM的纠错方案"></a>基于lightGBM的纠错方案</h3><ul>
+<li><p>基于实体产生ngram的候选集；</p>
+</li>
+<li><p>基于全量搜索日志产生纠错候选集；</p>
+</li>
+<li><p>采用lightGBM模型进行排序截断，产生最优的候选集；</p>
+</li>
+</ul>
+<p>缺点：</p>
+<p>1、过纠率提升；</p>
+<p>2、特征工程代价高；</p>
+<p>3、样本标注成本高；</p>
+<p>具体流程：<br>    1.实体进行字符级别ngram大于一个字符，业务query和浏览器query进行部分匹配替换实体，同时用实体拼音部分匹配替换实体来扩充候选集；<br>    2.通过训练质量模型或者排序模型截断或选择最优候选集；<br>    3.特征包括：编辑距离，cqr  ctr，BM25, 词召回，准确，精确率，距离比例，ngram  ppl，pv，session num，cosession num，共现拼音比例等qanchor数据特征；<br>    4.负样本，正样本百度打标。</p>
+<p>lightgbm使用链接：<a href="https://lightgbm.apachecn.org/#/docs/6" target="_blank" rel="noopener">https://lightgbm.apachecn.org/#/docs/6</a></p>
+<p>shap使用链接：<a href="http://sofasofa.io/tutorials/shap_xgboost/" target="_blank" rel="noopener">http://sofasofa.io/tutorials/shap_xgboost/</a></p>
+<p>word2vec spark链接：<a href="https://zhuanlan.zhihu.com/p/60532089" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/60532089</a><br>                                        <a href="https://yuerblog.cc/2021/01/29/pyspark-%E5%9F%BA%E4%BA%8Eword2veclsh%E5%AE%9E%E7%8E%B0%E7%9B%B8%E4%BC%BC%E5%86%85%E5%AE%B9%E6%9F%A5%E6%89%BE/" target="_blank" rel="noopener">https://yuerblog.cc/2021/01/29/pyspark-%E5%9F%BA%E4%BA%8Eword2veclsh%E5%AE%9E%E7%8E%B0%E7%9B%B8%E4%BC%BC%E5%86%85%E5%AE%B9%E6%9F%A5%E6%89%BE/</a></p>
+<p>kenlm使用链接：<a href="https://blog.csdn.net/github_34781135/article/details/103568188" target="_blank" rel="noopener">https://blog.csdn.net/github_34781135/article/details/103568188</a></p>
+<h3 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h3><ul>
+<li>引入字形特征</li>
+<li>为降低过纠率，需要尝试错误检测模型</li>
+<li>端到端模型</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">query理解</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">搜索算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">自然语言处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/learngit/categories/技术基础//" class="article-tag-list-link color5">技术基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/learngit/2021/10/14/query理解-纠错/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-工程常规操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -297,180 +582,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/learngit/2021/10/10/git的常规操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-近一年的经历与感悟" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/learngit/2020/12/13/近一年的经历与感悟/">近一年的经历与感悟</a>
-    </h1>
-  
-
-        
-        <a href="/learngit/2020/12/13/近一年的经历与感悟/" class="archive-article-date">
-  	<time datetime="2020-12-13T07:59:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>从2019年9月到2020年12月中旬，这段时间参与了很多项目，经历了工作上各种酸甜苦辣：从开始的自卑、无助、困惑、迷茫……到最后的自豪、高兴、喜悦、成就……这一切的一切好像做了一个好长的梦~~~</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">自然语言处理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/learngit/categories/实战项目//" class="article-tag-list-link color5">实战项目</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/learngit/2020/12/13/近一年的经历与感悟/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python开发之感" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/learngit/2019/09/08/python开发之感/">python开发之感</a>
-    </h1>
-  
-
-        
-        <a href="/learngit/2019/09/08/python开发之感/" class="archive-article-date">
-  	<time datetime="2019-09-08T05:52:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>近期，公司要进行数据仓库的开发，我也有幸参与其中，但是这是第一次用python进行开发这么大的工程，虽然只是开发了其中一小部分，但是进一步加深了对python的理解，颇有收获。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/learngit/categories/实战项目//" class="article-tag-list-link color5">实战项目</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/learngit/2019/09/08/python开发之感/">展开全文 >></a>
         </p>
       
 
@@ -643,6 +754,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kNN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
@@ -651,7 +766,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kNN</a>
+                <a href="javascript:void(0)" class="js-tag color3">query理解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">搜索算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,10 +783,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">决策树算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
               </li>
              
               <li class="article-tag-list-item">
